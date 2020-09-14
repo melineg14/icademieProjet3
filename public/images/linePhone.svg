@@ -1,0 +1,22 @@
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 304 39.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #5c39fb;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Groupe_25" data-name="Groupe 25">
+    <g>
+      <polyline class="cls-1" points="144.01 23.48 147.99 35.47 150.83 23.48"/>
+      <polyline class="cls-1" points="160.1 23.49 161.67 29.86 163.42 23.49"/>
+      <polygon class="cls-1" points="303 23.64 303 23.58 167.25 23.49 167.31 23.64 303 23.64"/>
+      <polyline class="cls-1" points="167.25 23.49 164.94 17.96 163.42 23.49"/>
+      <polyline class="cls-1" points="160.1 23.49 155.38 4.26 150.83 23.48"/>
+    </g>
+    <polyline class="cls-1" points="144.01 23.48 142.25 18.16 139.38 23.34 1 23.34 1 23.39"/>
+  </g>
+</svg>

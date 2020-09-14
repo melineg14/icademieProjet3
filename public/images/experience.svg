@@ -1,0 +1,17 @@
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84.9 84.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #2de47e;
+      }
+    </style>
+  </defs>
+  <g id="done_all-24px" data-name="done all-24px">
+    <path id="Tracé_25" data-name="Tracé 25" class="cls-1" d="M805,424.16h84.9v84.9H805Z" transform="translate(-804.98 -424.16)"/>
+    <path id="Tracé_26" data-name="Tracé 26" class="cls-2" d="M868.66,448.92l-5-5-22.43,22.43,5,5Zm15-5-37.43,37.43-14.79-14.75-5,5,19.77,19.77,42.45-42.45ZM806.43,471.6l19.78,19.77,5-5-19.74-19.77Z" transform="translate(-804.98 -424.16)"/>
+  </g>
+</svg>
