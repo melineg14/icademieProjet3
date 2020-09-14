@@ -1,12 +1,130 @@
+{# templates/base.html.twig #}
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content=""> {# Maxi 160 caractères #}
+    <meta name="keywords" content="mot-clé 1, mot-clé 2, mot-clé 3" /> {# Attention #}
+    <meta name="robots" content="index,follow">
+    <title>{% block title %}{% endblock %} | RCP Electronic</title> {# Maxi 55 caractères #}
+
+{#
+    <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
+#}
+
+    {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/datetime-picker.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/cookie-consent.css') }}">
+    {% endblock %}
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{ path('home') }}">
+                    <img src="{{ asset('images/logo_black.svg') }}" width="180" alt="RCP Electronic" loading="lazy">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link ancre" href="{{ path('home') }}#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ancre" href="{{ path('home') }}#apropos">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('advices.index') }}">Nos conseils</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-primary" href="{{ path('quotations') }}">Devis gratuit</a>
+                </div>
+            </div>
+        </nav>
+        <div class="fixed-nav-mb"></div>
+    </header>
+    <main>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('home') }}#apropos">À propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('advices.index') }}">Nos conseils</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('contact') }}">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('quotations') }}">Demander un devis</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <address>
+                        <p class="font-weight-bold"><u>Coordonnées</u></p>
+                        <p>contact@rcp-electronic.fr</p>
+                        <p>07 82 30 02 23</p>
+                        <p>RCP Electronic <br> 175 rue Chanoine Bouisson <br> 83200 TOULON</p>
+                    </address>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="footer-logo">
+                        <a href="{{ path('home') }}">
+                            <img src="{{ asset('images/logo_white.svg') }}" class="footer-logo" width="260" alt="RCP Electronic" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="copyright d-flex">
+                <div class="p-2 flex-fill"><small class="d-flex justify-content-start"><a href="{{ path('notice') }}">Mentions
+                            légales</a></small></div>
+                <div class="p-2 flex-fill"><small class="d-flex justify-content-center">&copy; RCP Electronic
+                        2020</small> </div>
+                <div class="p-2 flex-fill">
+                    <div class="d-flex justify-content-end">
+                        <a href="#">
+                            <img src="{{ asset('images/link.svg') }}" width="12" alt="" loading="lazy">
+                        </a>
+                        <a class="mx-3" href="https://www.facebook.com/pages/category/Electronics-Company/RCP-Electronic-223892701575773/" target="_blank">
+                            <img src="{{ asset('images/facebook.svg') }}" width="12" alt="" loading="lazy">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="cookiealert">
+        &#x1F36A; Nous utilisons des cookies pour vous garantir la meilleure expérience possible sur notre site web. <a
+            href="{{ path('notice') }}">En savoir plus</a>
+        <button type="button" class="btn btn-outline-primary btn-sm acceptcookies"
+            aria-label="Close">J'approuve</button>
+    </div>
+
+    {% block javascripts %}
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/datetime-picker.js') }}"></script>
+    <script src="{{ asset('js/file-browser.js') }}"></script>
+    <script src="{{ asset('js/cookie-consent.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {% endblock %}
+</body>
+
 </html>

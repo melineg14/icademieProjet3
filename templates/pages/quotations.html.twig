@@ -1,0 +1,119 @@
+{# templates/pages/quotations.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Demander un devis{% endblock %}
+
+{% block body %}
+<section class="contact container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="page-h1 h1-sm-device">Demander un devis</h1>
+            <div class="row quotes">
+                <div class="col-lg-11">
+                    <div class="mb-4 px-1 py-1">
+                        <div class="row">
+                            <div class="col-lg-2 text-center">
+                                <img src="{{ asset('images/build.svg') }}" class="card-img" alt="">
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="card-body">
+                                    <h3 class="card-title">Réparation de cartes électroniques</h3>
+                                    <p class="card-text">Nous réparons tout type de cartes électroniques professionnels
+                                        et industriels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-11 d-flex">
+                    <div class="mb-4 px-1 py-1">
+                        <div class="row">
+                            <div class="col-lg-2 text-center">
+                                <img src="{{ asset('images/clock.svg') }}" class="card-img" alt="">
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="card-body">
+                                    <h3 class="card-title">Devis en 24h</h3>
+                                    <p class="card-text">Nous nous engageons à vous répondre sous 24h. Devis gratuit en
+                                        ligne ou par téléphone.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-11 d-flex">
+                    <div class="mb-4 px-1 py-1">
+                        <div class="row">
+                            <div class="col-lg-2 text-center">
+                                <img src="{{ asset('images/time.svg') }}" class="card-img" alt="">
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="card-body">
+                                    <h3 class="card-title">Traitement des urgences</h3>
+                                    <p class="card-text">Parce que nous comprenons que votre temps est précieux nous
+                                        traitons vos urgences.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <form>
+                <div class="form-group">
+                    <label for="name">Nom et prénom</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-lg-6">
+                        <label for="phone">Téléphone</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="company">Entreprise</label>
+                        <input type="text" class="form-control" id="company" name="company">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-lg-6">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="browse-file">Joindre une photo de la carte.</label>
+                        <input type="file" class="form-control-file" id="browse-file">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="6"></textarea>
+                </div>
+                <p>
+                    <small>
+                        En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par
+                        RCP Electronic.
+                        <a class="rgpd-link" data-toggle="collapse" href="#multiCollapseExample1" role="button"
+                            aria-expanded="false" aria-controls="multiCollapseExample1">
+                            A LIRE ATTENTIVEMENT
+                        </a>
+                    </small>
+                </p>
+                <div class="collapse multi-collapse" id="multiCollapseExample1">
+                    <div class="rgpd">
+                        <p>Les informations recueillies sur ce formulaire sont enregistrées dans un fichier informatisé
+                            par RCP Electronic.
+                            Les données sont conservées pour la durée nécessaire à la gestion de votre demande.
+                            Vous pouvez demander leur effacement à RCP Electronic.
+                            Pour exercer ces droits ou pour toute question sur le traitement de vos données dans ce
+                            dispositif, vous pouvez contacter RCP Electronic.</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-primary btn-sm">ENVOYER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
