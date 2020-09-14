@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NoticeController extends AbstractController
 {
     /**
-     * @Route("/mentionslegales", name="notice")
+     * @Route("/mentions-legales", name="notice")
      * @return Response
      */
     public function index(): Response
