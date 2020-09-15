@@ -10,17 +10,15 @@
     <meta name="robots" content="index,follow">
     <title>{% block title %}{% endblock %} | RCP Electronic</title> {# Maxi 55 caractères #}
 
-{#
-    <link rel="apple-touch-icon" href="/docs/4.5/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/4.5/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/4.5/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-    <link rel="icon" href="/docs/4.5/assets/img/favicons/favicon.ico">
-#}
+    <link rel="apple-touch-icon" href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180">
+    <link rel="icon" href="{{ asset('favicons/favicon-32x32.png') }}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ asset('favicons/favicon-16x16.png') }}" sizes="16x16" type="image/png">
+    <link rel="manifest" href="{{ asset('favicons/manifest.json') }}">
+    <link rel="icon" href="{{ asset('favicons/favicon.ico') }}">
 
     {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datetime-picker.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/cookie-consent.css') }}">
     {% endblock %}
@@ -28,7 +26,7 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="main-nav-bar">
             <div class="container">
                 <a class="navbar-brand" href="{{ path('home') }}">
                     <img src="{{ asset('images/logo_black.svg') }}" width="180" alt="RCP Electronic" loading="lazy">
@@ -99,11 +97,11 @@
                         2020</small> </div>
                 <div class="p-2 flex-fill">
                     <div class="d-flex justify-content-end">
-                        <a href="#">
-                            <img src="{{ asset('images/link.svg') }}" width="12" alt="" loading="lazy">
+                        <a href="#" class="mr-4">
+                            <img src="{{ asset('images/link.svg') }}" height="18" alt="" loading="lazy">
                         </a>
-                        <a class="mx-3" href="https://www.facebook.com/pages/category/Electronics-Company/RCP-Electronic-223892701575773/" target="_blank">
-                            <img src="{{ asset('images/facebook.svg') }}" width="12" alt="" loading="lazy">
+                        <a href="https://www.facebook.com/pages/category/Electronics-Company/RCP-Electronic-223892701575773/" target="_blank">
+                            <img src="{{ asset('images/facebook.svg') }}" height="18" alt="" loading="lazy">
                         </a>
                     </div>
                 </div>
