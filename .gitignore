@@ -16,6 +16,11 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
+###> docker ###
+.docker/data/*
+.docker/data/
+###< docker ###
+
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/
