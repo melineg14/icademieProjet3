@@ -1,0 +1,69 @@
+{# templates/admin/base.html.twig #}
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Admin | RCP Electronic</title>
+        
+        <link rel="apple-touch-icon" href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180">
+        <link rel="icon" href="{{ asset('favicons/favicon-32x32.png') }}" sizes="32x32" type="image/png">
+        <link rel="icon" href="{{ asset('favicons/favicon-16x16.png') }}" sizes="16x16" type="image/png">
+        <link rel="manifest" href="{{ asset('favicons/manifest.json') }}">
+        <link rel="icon" href="{{ asset('favicons/favicon.ico') }}">
+
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+        {% endblock %}
+    </head>
+
+    <body class="admin"> 
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="main-nav-bar">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="{{ asset('images/logo_black.svg') }}" width="180" alt="" loading="lazy">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link ancre" href="{{ path('admin_quotations') }}">Devis</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('admin_appointments') }}">Rendez-vous</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ path('admin_advices') }}">Conseils</a>
+                            </li>                        
+                        </ul>
+                        <a class="btn btn-primary nav-small-btn" href="#">Déconnexion</a>
+                    </div>
+                </div>             
+            </nav>
+            <div class="fixed-nav-mb"></div>
+        </header>
+
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer>
+            <div class="container">
+                <div class="copyright d-flex">
+                    <div class="p-2 flex-fill"><small class="d-flex justify-content-center">&copy; RCP Electronic 2020</small> </div>
+                </div>
+            </div>
+        </footer>
+
+        {% block javascripts %}
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>        

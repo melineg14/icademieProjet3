@@ -133,15 +133,24 @@ p {
   .fixed-nav-mb {
     margin-bottom: 120px;
   }
+
+  .navbar .nav-small-btn {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: rgba(0, 0, 0, 0.5) !important;
+    padding-left: 0;
+    font-size: 1rem !important;
+  }
 }
 .navbar-toggler-icon {
   background-image: url("../images/hamburger.svg") !important;
 }
 
 .navbar-collapse-shadow {
-  -webkit-box-shadow: 0px 89px 95px 16px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 89px 95px 16px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 89px 95px 16px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 29px 35px 3px rgba(0, 0, 0, 0.64);
+  -moz-box-shadow: 0px 29px 35px 3px rgba(0, 0, 0, 0.64);
+  box-shadow: 0px 29px 35px 3px rgba(0, 0, 0, 0.64);
   padding-bottom: 30px !important;
 }
 
@@ -429,6 +438,21 @@ footer .copyright, footer .copyright a {
 .cookiealert button:hover {
   color: #000000 !important;
   background-color: #76eeb1 !important;
+}
+
+.login {
+  background: #434c50;
+}
+.login form {
+  padding: 20px;
+  background: #fafafa;
+  -webkit-box-shadow: 11px 11px 24px 0px rgba(0, 0, 0, 0.23);
+  -moz-box-shadow: 11px 11px 24px 0px rgba(0, 0, 0, 0.23);
+  box-shadow: 11px 11px 24px 0px rgba(0, 0, 0, 0.23);
+}
+.login p {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /*!

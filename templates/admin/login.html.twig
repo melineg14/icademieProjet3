@@ -1,0 +1,51 @@
+{# templates/admin/login.html.twig #}
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Connexion</title>
+        
+        <link rel="apple-touch-icon" href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180">
+        <link rel="icon" href="{{ asset('favicons/favicon-32x32.png') }}" sizes="32x32" type="image/png">
+        <link rel="icon" href="{{ asset('favicons/favicon-16x16.png') }}" sizes="16x16" type="image/png">
+        <link rel="manifest" href="{{ asset('favicons/manifest.json') }}">
+        <link rel="icon" href="{{ asset('favicons/favicon.ico') }}">
+
+        {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
+        {% endblock %}
+    </head>
+    <body class="login">
+
+        <main class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center mt-5">
+                <div class="col-10 col-md-8 col-lg-5">
+                    <form>
+                        <img src="{{ asset('images/logo_black.svg') }}" width="180" alt="RCP Electronic" class="mx-auto d-block mb-3" loading="lazy">
+                        <div class="form-group">
+                            <label for="identifiant">Identifiant</label>
+                            <input type="text" class="form-control" id="identifiant">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-sm btn-primary my-3 text-center">SE CONNECTER</button>
+                        </div>
+                        <p class="text-center"><small>&copy; RCP Electronic 2020</small></p>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        {% block javascripts %}
+        <script src="{{ asset('js/jquery.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>
