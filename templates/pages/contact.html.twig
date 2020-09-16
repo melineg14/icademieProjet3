@@ -18,36 +18,29 @@
         </div>
         <div class="col-lg-6">
             <h2>Prise de rendez-vous :</h2>
-            <form>
+            {{ form_start(form) }}
                 <div class="form-group">
-                    <label for="name">Nom et prénom</label>
-                    <input type="text" class="form-control" id="name" name="name">
+                    {{ form_row(form.name) }}
                 </div>
                 <div class="form-row">
                     <div class="form-group col-lg-6">
-                        <label for="phone">Téléphone</label>
-                        <input type="text" class="form-control" id="phone" name="phone">
+                        {{ form_row(form.phone) }}
                     </div>
-
                     <div class="form-group col-lg-6">
-                        <label for="company">Entreprise</label>
-                        <input type="text" class="form-control" id="company" name="company">
+                        {{ form_row(form.company) }}
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-lg-6">
-                        <label for="email">E-mail</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        {{ form_row(form.mail) }}
                     </div>
-
                     <div class="form-group col-lg-6">
-                        <label for="datetimepicker">Date</label>
-                        <input type="text" class="form-control" id="datetimepicker" name="date">
+                        {{ form_label(form.app_date) }}
+                        {{ form_widget(form.app_date, {'id': 'datetimepicker'}) }}
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" id="message" rows="2"></textarea>
+                    {{ form_row(form.app_message) }}
                 </div>
                 <p>
                     <small>
@@ -73,7 +66,7 @@
                 <div class="text-right">
                     <button type="submit" class="btn btn-primary btn-sm">ENVOYER</button>
                 </div>
-            </form>
+            {{ form_end(form) }}
         </div>
     </div>
 </section>

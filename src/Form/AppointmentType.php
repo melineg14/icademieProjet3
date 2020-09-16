@@ -18,22 +18,43 @@ class AppointmentType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'required' => true
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ])
             ->add('company', TextType::class, [
-                'required' => true
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ])
             ->add('mail', EmailType::class, [
-                'required' => true
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ])
             ->add('phone', TelType::class, [
-                'required' => true
+                'required' => true,
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ])
             ->add('app_message', TextareaType::class, [
-                'required' => true
+                'required' => true,
+                'label' => 'Message',
+                'attr' => [
+                    'class' => 'form-control',
+                    'rows' => 2
+                ]
             ])
-            ->add('app_date', DateTimeType::class, [
-                'required' => true
+            ->add('app_date', TextType::class, [
+                'required' => true,
+                'label' => 'Date',
+                'attr' => [
+                    'class' => 'form-control'
+                ]
             ])
         ;
     }
