@@ -1,6 +1,18 @@
 {# templates/pages/quotations.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% form_theme form _self %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% for error in errors %}
+            <div class="alert alert-danger">
+                {{ error.message }}
+            </div>
+        {% endfor %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
 {% block title %}Demander un devis{% endblock %}
 
 {% block body %}
@@ -60,21 +72,30 @@
             </div>
         </div>
         <div class="col-lg-6">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success"> {{ message }} </div>
+            {% endfor %}
             {{ form_start(form) }}
                 <div class="form-group">
-                    {{ form_row(form.name) }}
+                    {{ form_errors(form.name) }}
+                    {{ form_label(form.name) }}
+                    {{ form_widget(form.name) }}
                 </div>
                 <div class="form-row">
+                    {{ form_errors(form.phone) }}
                     <div class="form-group col-lg-6">
-                        {{ form_row(form.phone) }}
+                        {{ form_label(form.phone) }}
+                        {{ form_widget(form.phone) }}
                     </div>
                     <div class="form-group col-lg-6">
                         {{ form_row(form.company) }}
                     </div>
                 </div>
                 <div class="form-row">
+                    {{ form_errors(form.mail) }}
                     <div class="form-group col-lg-6">
-                        {{ form_row(form.mail) }}
+                        {{ form_label(form.mail) }}
+                        {{ form_widget(form.mail) }}
                     </div>
                     <div class="form-group col-lg-6">
                         {{ form_label(form.imageFile) }}

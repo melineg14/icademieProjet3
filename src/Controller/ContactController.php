@@ -29,6 +29,7 @@ class ContactController extends AbstractController
     {
         $app = new Appointment();
         $form = $this->createForm(AppointmentType::class, $app);
+        // var_dump($request);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
             $app->setCreatedAt(new \DateTime());

@@ -67,9 +67,8 @@ class Appointment
     private $app_message;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
-     * @Assert\DateTime
      */
     private $app_date;
 
@@ -143,12 +142,12 @@ class Appointment
         return $this;
     }
 
-    public function getAppDate(): ?\DateTimeInterface
+    public function getAppDate(): ?string
     {
         return $this->app_date;
     }
 
-    public function setAppDate(\DateTimeInterface $app_date): self
+    public function setAppDate(string $app_date): self
     {
         $this->app_date = $app_date;
 
