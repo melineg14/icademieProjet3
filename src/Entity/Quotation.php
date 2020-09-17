@@ -15,6 +15,13 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Quotation
 {
+    const STATUS = [
+        0 => 'Nouvelle',
+        1 => 'En cours',
+        2 => 'Terminée',
+        3 => 'Annulée'
+    ];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -162,6 +169,12 @@ class Quotation
         return $this;
     }
 
+    public function __construct()
+    {
+        $this->created_at = new \DateTime('now');
+        $this->status = 0;
+    }
+
     public function getStatus(): ?int
     {
         return $this->status;
@@ -179,7 +192,7 @@ class Quotation
         return $this->imageName;
     }
 
-    public function setImageName(?File $imageName): self
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
         return $this;
@@ -199,11 +212,6 @@ class Quotation
         }
 
         return $this;
-    }
-
-    public function __construct()
-    {
-        $this->created_at = new \DateTime('now');
     }
 
     public function getCreatedAt(): ?\DateTimeInterface
