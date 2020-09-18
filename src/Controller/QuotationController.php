@@ -31,6 +31,7 @@ class QuotationController extends AbstractController
         $quote = new Quotation();
         $form = $this->createForm(QuotationType::class, $quote);
         $form->handleRequest($request);
+
         if($form->isSubmitted() && $form->isValid()) {
             $quote->setCreatedAt(new \DateTime());
             $this->manager->persist($quote);
@@ -39,6 +40,7 @@ class QuotationController extends AbstractController
             $notification->abstract($quote);
             $this->addFlash('success', 'Votre demande de devis a bien été envoyée, vous recevrez une réponse sous 24h.');
         }
+
         return $this->render('pages/quotations.html.twig', [
             'form' => $form->createView()
         ]);
