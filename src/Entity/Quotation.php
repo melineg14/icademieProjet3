@@ -30,25 +30,25 @@ class Quotation
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=40)
      * @Assert\NotBlank()
      * @Assert\Length(
      * min=2, 
-     * max=200,
+     * max=40,
      * minMessage = "Votre nom doit faire minimum 2 caractères.",
-     * maxMessage = "Votre nom doit faire maximum 200 caractères."
+     * maxMessage = "Votre nom doit faire maximum 40 caractères."
      * )
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=40)
      * @Assert\NotBlank()
      */
     private $company;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank()
      * @Assert\Email(
      * message = "L'e-mail {{ value }} n'est pas une adresse mail valide. Elle doit ressembler à ceci : exemple@exemple.com"
@@ -57,7 +57,7 @@ class Quotation
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=16)
      * @Assert\NotBlank()
      * @Assert\Regex(
      * pattern="/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/i",
@@ -68,17 +68,19 @@ class Quotation
     private $phone;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=350)
      * @Assert\NotBlank()
      * @Assert\Length(
      * min=10,
-     * minMessage="Votre message doit faire minimum 10 caractères."
+     * max=350,
+     * minMessage="Votre message doit faire minimum 10 caractères.",
+     * maxMessage = "Votre nom doit faire maximum 350 caractères."
      * )
      */
     private $quote_message;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="smallint")
      */
     private $status;
 
@@ -91,6 +93,11 @@ class Quotation
     /**
      * @Vich\UploadableField(mapping="quotation_image", fileNameProperty="imageName")
      * @var File
+     * @Assert\File(
+     * maxSize = "3M",
+     * mimeTypes = {"image/png" ,"image/jpg", "image/jpeg"},
+     * mimeTypesMessage = "Seuls les formats .jpg, .jpeg et .png sont acceptés."
+     * )
      */
     private $imageFile;
 

@@ -24,13 +24,29 @@ class Advice
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=60)
      * @Assert\NotBlank()
+     * @Assert\Length(
+     * max=150,
+     * maxMessage="Le titre doit faire maximum 60 caractères."
+     * )
      */
     private $title;
 
+     /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     */
+    private $slug;
+
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=150)
+     * @Assert\Length(
+     * min=10,
+     * max=150,
+     * minMessage="La description doit faire minimum 10 caractères.",
+     * maxMessage="La description doit faire maximum 150 caractères."
+     * )
      */
     private $description;
 
@@ -53,6 +69,11 @@ class Advice
     /**
      * @Vich\UploadableField(mapping="advice_image", fileNameProperty="imageName")
      * @var File
+     * @Assert\File(
+     * maxSize = "3M",
+     * mimeTypes = {"image/png" ,"image/jpg", "image/jpeg"},
+     * mimeTypesMessage = "Seuls les formats .jpg, .jpeg et .png sont acceptés."
+     * )
      */
     private $imageFile;
 
@@ -79,6 +100,18 @@ class Advice
     public function setTitle(string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }

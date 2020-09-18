@@ -19,25 +19,25 @@ class Appointment
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=40)
      * @Assert\NotBlank()
      * @Assert\Length(
      * min=2, 
-     * max=200,
+     * max=40,
      * minMessage = "Votre nom doit faire minimum 2 caractères.",
-     * maxMessage = "Votre nom doit faire maximum 200 caractères."
+     * maxMessage = "Votre nom doit faire maximum 40 caractères."
      * )
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=40)
      * @Assert\NotBlank()
      */
     private $company;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank()
      * @Assert\Email(
      * message = "L'e-mail {{ value }} n'est pas une adresse mail valide. Elle doit ressembler à ceci : exemple@exemple.com"
@@ -46,7 +46,7 @@ class Appointment
     private $mail;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=16)
      * @Assert\NotBlank()
      * @Assert\Regex(
      * pattern="/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/i",
@@ -57,17 +57,19 @@ class Appointment
     private $phone;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=350)
      * @Assert\NotBlank()
      * @Assert\Length(
      * min=10,
-     * minMessage="Votre message doit faire minimum 10 caractères."
+     * max=255,
+     * minMessage="Votre message doit faire minimum 10 caractères.",
+     * maxMessage="Votre message doit faire maximum 350 caractères."
      * )
      */
     private $app_message;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=16)
      * @Assert\NotBlank()
      */
     private $app_date;
