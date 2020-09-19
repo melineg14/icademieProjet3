@@ -44,4 +44,22 @@ class ContactController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route("/admin/contact", name="contact.list")
+     * @return Response
+     */
+    public function list(): Response
+    {
+        return $this->render('admin/contact.html.twig');
+    } 
+
+    /**
+     * @Route("/admin/contact/{id}", name="contact.show")
+     * @return Response
+     */
+    public function show(): Response
+    {
+        return $this->render('admin/contact.show.html.twig');
+    }    
 }

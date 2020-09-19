@@ -42,5 +42,23 @@ class QuotationController extends AbstractController
         return $this->render('pages/quotations.html.twig', [
             'form' => $form->createView()
         ]);
-    }
+    } 
+    
+    /**
+     * @Route("/admin/devis", name="quotations.list")
+     * @return Response
+     */
+    public function list(): Response
+    {
+        return $this->render('admin/quotations.html.twig');
+    } 
+
+    /**
+     * @Route("/admin/devis/{id}", name="quotations.show")
+     * @return Response
+     */
+    public function show(): Response
+    {
+        return $this->render('admin/quotations.show.html.twig');
+    } 
 }

@@ -24,4 +24,31 @@ class AdviceController extends AbstractController
     {
         return $this->render('pages/article.html.twig');
     }
+
+    /**
+     * @Route("/admin/conseils", name="advices.list")
+     * @return Response
+     */
+    public function list(): Response
+    {
+        return $this->render('admin/advices.html.twig');
+    }
+    
+    /**
+     * @Route("/admin/conseils/ajouter", name="advices.add")
+     * @return Response
+     */
+    public function add(): Response
+    {
+        return $this->render('admin/advices.add.html.twig');
+    }
+    
+    /**
+     * @Route("/admin/conseils/modifier", name="advices.edit")
+     * @return Response
+     */
+    public function edit(): Response
+    {
+        return $this->render('admin/advices.edit.html.twig');
+    }     
 }
