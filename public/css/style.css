@@ -333,16 +333,15 @@ footer .copyright, footer .copyright a {
 .contact .contact-details {
   font-size: 1.125rem;
 }
-.contact h2 {
-  padding-top: 10px;
+.contact h1 {
   padding-bottom: 20px;
 }
 @media (max-width: 992px) {
   .contact {
     margin-bottom: 104px;
   }
-  .contact h2 {
-    padding-top: 60px;
+  .contact h1 {
+    padding-top: 0;
   }
 }
 .contact .rgpd p {
