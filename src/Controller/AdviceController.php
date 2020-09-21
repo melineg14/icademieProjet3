@@ -46,5 +46,5 @@ class AdviceController extends AbstractController
         return $this->render('pages/article.html.twig', [
             'advice' => $advice
         ]);
-    }
+    }  
 }

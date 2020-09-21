@@ -1,0 +1,55 @@
+{# templates/admin/advices.edit.html.twig #}
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier un conseil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h3 class="pt-3 h3-admin"><img src="{{ asset('images/edit.svg') }}" width="26" alt="Conseil"> Modifier un conseil</h3>
+    <form>
+        <div class="form-group">
+            <label for="title">Titre <span id="titleCount"></span></label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Maximum 60 caractères." value="Test count letters ..." onkeyup="titleCountUpdate(this.value)">
+        </div>
+        <div class="form-group">
+            <label for="description">Description courte <span id="descCount"></span></label>
+            <textarea class="form-control" id="description" name="description" rows="2" placeholder="Maximum 150 caractères." onkeyup="descCountUpdate(this.value)"></textarea>
+        </div>
+        <div class="form-group trix">
+            <label for="content">Description</label>
+            <input type="hidden" class="form-control" id="content" name="content">
+            <trix-editor input="content"></trix-editor>
+        </div>
+        <div>
+            <img src="{{ asset('images/carte-defectueuse.jpg') }}" alt="photo" width="200" class="img-thumbnail">
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file" id="image" name="image_name">
+        </div>
+        <div class="mt-1 float-right">
+            <a class="btn btn-sm btn-secondary" href="#">Modifier le conseil</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/trix.js') }}"></script>
+	<script>
+        function titleCountUpdate(str) {
+            var lng = str.length;
+            document.getElementById("titleCount").innerHTML = '(' + lng + ' sur 60 caractères )';
+        }
+        function descCountUpdate(str) {
+            var lng = str.length;
+            document.getElementById("descCount").innerHTML = '(' + lng + ' sur 150 caractères )';
+        }
+	</script>    
+{% endblock %}

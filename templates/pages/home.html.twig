@@ -3,10 +3,15 @@
 
 {% block title %}Réparation de cartes et systèmes électroniques{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/aos.css') }}">
+{% endblock %}
+
 {% block body %}
 <section class="hero container">
     <div class="row">
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="fade-up">
             <div class="row">
                 <div class="col">
                     <h1>Réparation de <span class="span-primary">cartes</span> et <span class="span-primary">systèmes
@@ -23,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6" data-aos="flip-left">
             <img src="{{ asset('images/illustrationHero.svg') }}" alt="" loading="lazy">
         </div>
     </div>
@@ -37,7 +42,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-sm-6 d-flex">
+        <div class="col-sm-6 d-flex" data-aos="fade-up">
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
@@ -53,7 +58,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 d-flex">
+        <div class="col-sm-6 d-flex" data-aos="fade-up">
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
@@ -69,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 d-flex">
+        <div class="col-sm-6 d-flex" data-aos="fade-up">
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
@@ -85,7 +90,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 d-flex">
+        <div class="col-sm-6 d-flex" data-aos="fade-up">
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
@@ -103,7 +108,7 @@
         </div>
     </div>
 </section>
-<section class="challenge container text-center">
+<section class="challenge container text-center" data-aos="fade-up">
     <div class="col-lg-8  mx-auto">
         <h2>Nous relevons le défi de donner une deuxième vie à votre matériel électronique.</h2>
         <div class="hr"></div>
@@ -135,17 +140,17 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col-lg-4 d-flex">
+            <div class="col-lg-4 d-flex" data-aos="fade-up">
                 <div class="card mb-4">
                     <img src="{{ asset('images/user.svg') }}" class="card-img-top mx-auto" alt="">
                     <div class="card-body">
                         <h3 class="card-title text-center">Proche de vous</h3>
-                        <p class="card-text text-center">Notre proximité acec les entreprises et industries locales nous
+                        <p class="card-text text-center">Notre proximité avec les entreprises et industries locales nous
                             permet de faire preuve d’une grande réactivité</p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 d-flex">
+            <div class="col-lg-4 d-flex" data-aos="fade-up">
                 <div class="card mb-4">
                     <img src="{{ asset('images/experience.svg') }}" class="card-img-top mx-auto" alt="">
                     <div class="card-body">
@@ -155,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 d-lg-flex">
+            <div class="col-lg-4 d-lg-flex" data-aos="fade-up">
                 <div class="card mb-4">
                     <img src="{{ asset('images/success.svg') }}" class="card-img-top mx-auto" alt="">
                     <div class="card-body">
@@ -167,7 +172,7 @@
             </div>
         </div>
     </div>
-    <div class="call container text-center">
+    <div class="call container text-center" data-aos="fade-up">
         <div class="col-lg-6  mx-auto mb-5">
             <h2>Une machine en panne, une carte défectueuse ?</h2>
         </div>
@@ -176,4 +181,15 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/aos.js') }}"></script>
+    <script>
+        AOS.init({
+        once: true,
+        duration: 900,
+        });
+    </script>
 {% endblock %}

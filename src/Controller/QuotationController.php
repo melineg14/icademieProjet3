@@ -44,5 +44,5 @@ class QuotationController extends AbstractController
         return $this->render('pages/quotations.html.twig', [
             'form' => $form->createView()
         ]);
-    }
+    } 
 }

@@ -134,3 +134,13 @@
     </div>
 </section>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/file-browser.js') }}"></script>
+    <script>
+        $('#browse-file').fileselect({
+        default: false
+        });  
+    </script>
+{% endblock %}
