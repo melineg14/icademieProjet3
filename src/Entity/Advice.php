@@ -8,7 +8,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=AdviceRepository::class)
@@ -32,12 +32,6 @@ class Advice
      * )
      */
     private $title;
-
-     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $slug;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -104,16 +98,9 @@ class Advice
         return $this;
     }
 
-    public function getSlug(): ?string
+    public function getSlug(): string
     {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
+        return (new Slugify())->slugify($this->title);
     }
 
     public function getDescription(): ?string

@@ -32,16 +32,16 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link ancre" href="{{ path('admin_quotations') }}">Devis</a>
+                                <a class="nav-link ancre" href="{{ path('admin_quotation.index') }}">Devis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('admin_appointments') }}">Rendez-vous</a>
+                                <a class="nav-link" href="{{ path('admin_appointment.index') }}">Rendez-vous</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('admin_advices') }}">Conseils</a>
+                                <a class="nav-link" href="{{ path('admin_advice.index') }}">Conseils</a>
                             </li>                        
                         </ul>
-                        <a class="btn btn-primary nav-small-btn" href="#">Déconnexion</a>
+                        <a class="btn btn-primary nav-small-btn" href="{{ path('logout') }}">Déconnexion</a>
                     </div>
                 </div>             
             </nav>
