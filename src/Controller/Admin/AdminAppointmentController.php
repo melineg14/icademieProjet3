@@ -1,6 +1,7 @@
 <?php 
 namespace App\Controller\Admin;
 
+use App\Repository\AppointmentRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +12,12 @@ class AdminAppointmentController extends AbstractController
      * @Route("/admin/rendez_vous", name="admin_appointment")
      * @return Response
      */
-    public function index(): Response
+    public function index(AppointmentRepository $repository): Response
     {
-        return $this->render('admin/contact/index.html.twig');
+        $appointments = $repository->findAllByDate();
+        return $this->render('admin/contact/index.html.twig', [
+            'appointments' => $appointments
+        ]);
     }
 
     /**

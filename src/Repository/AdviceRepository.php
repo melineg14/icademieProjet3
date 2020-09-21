@@ -19,6 +19,18 @@ class AdviceRepository extends ServiceEntityRepository
         parent::__construct($registry, Advice::class);
     }
 
+    /**
+    * @return Advice[] Returns an array of Advice objects
+    */
+    public function findAllByDate()
+    {
+        return $this->createQueryBuilder('a')
+            ->orderBy('a.created_at', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Advice[] Returns an array of Advice objects
     //  */

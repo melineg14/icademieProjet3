@@ -1,6 +1,7 @@
 <?php 
 namespace App\Controller\Admin;
 
+use App\Repository\AdviceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +12,12 @@ class AdminAdviceController extends AbstractController
      * @Route("/admin/conseils", name="admin_advice")
      * @return Response
      */
-    public function index(): Response
+    public function index(AdviceRepository $repository): Response
     {
-        return $this->render('admin/advice/index.html.twig');
+        $advices = $repository->findAllByDate();
+        return $this->render('admin/advice/index.html.twig', [
+            'advices' => $advices
+        ]);
     }
     
     /**

@@ -27,10 +27,11 @@
                 </tr>
             </thead>
             <tbody>
+                {% for advice in advices %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit nam.</td>
-                    <td>24-09-2020 10:00</td>
+                    <th scope="row">{{ advice.id }}</th>
+                    <td>{{ advice.title }}</td>
+                    <td>{{ advice.updatedAt | date("d/m/Y") }}</td>
                     <td>
                         <a href="#">
                             <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
@@ -47,6 +48,7 @@
                         </a>
                     </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
