@@ -16,10 +16,10 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Quotation
 {
     const STATUS = [
-        0 => 'Nouvelle',
+        0 => 'Nouveau',
         1 => 'En cours',
-        2 => 'Terminée',
-        3 => 'Annulée'
+        2 => 'Terminé',
+        3 => 'Annulé'
     ];
 
     /**
@@ -179,7 +179,7 @@ class Quotation
     public function __construct()
     {
         $this->created_at = new \DateTime('now');
-        $this->status = 0;
+        $this->status = "0";
     }
 
     public function getStatus(): ?int
