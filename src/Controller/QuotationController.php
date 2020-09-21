@@ -23,7 +23,7 @@ class QuotationController extends AbstractController
     }
 
     /**
-     * @Route("/devis", name="quotations")
+     * @Route("/devis", name="quotation")
      * @return Response
      */
     public function index(Request $request, QuotationNotification $notification): Response

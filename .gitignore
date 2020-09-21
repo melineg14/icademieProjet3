@@ -25,6 +25,7 @@
 /node_modules/
 /public/build/
 /public/images/quotations/*
+/public/images/advices/*
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###

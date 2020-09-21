@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminQuotationController extends AbstractController
 {
     /**
-     * @Route("/admin/devis", name="admin_quotations")
+     * @Route("/admin/devis", name="admin_quotation.index")
      * @return Response
      */
     public function index(): Response

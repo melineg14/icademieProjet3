@@ -8,7 +8,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=AdviceRepository::class)
@@ -32,12 +32,6 @@ class Advice
      * )
      */
     private $title;
-
-     /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     */
-    private $slug;
 
     /**
      * @ORM\Column(type="string", length=150)
@@ -70,7 +64,7 @@ class Advice
      * @Vich\UploadableField(mapping="advice_image", fileNameProperty="imageName")
      * @var File
      * @Assert\File(
-     * maxSize = "3M",
+     * maxSize = "2M",
      * mimeTypes = {"image/png" ,"image/jpg", "image/jpeg"},
      * mimeTypesMessage = "Seuls les formats .jpg, .jpeg et .png sont acceptés."
      * )
@@ -104,16 +98,9 @@ class Advice
         return $this;
     }
 
-    public function getSlug(): ?string
+    public function getSlug(): string
     {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
-
-        return $this;
+        return (new Slugify())->slugify($this->title);
     }
 
     public function getDescription(): ?string

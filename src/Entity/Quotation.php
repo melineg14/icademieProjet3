@@ -94,7 +94,7 @@ class Quotation
      * @Vich\UploadableField(mapping="quotation_image", fileNameProperty="imageName")
      * @var File
      * @Assert\File(
-     * maxSize = "3M",
+     * maxSize = "2M",
      * mimeTypes = {"image/png" ,"image/jpg", "image/jpeg"},
      * mimeTypesMessage = "Seuls les formats .jpg, .jpeg et .png sont acceptés."
      * )
