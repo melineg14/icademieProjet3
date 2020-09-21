@@ -33,35 +33,42 @@
                 </tr>
             </thead>
             <tbody>
-            {% for quotation in quotations %}
+            {% if quotations %}
+                {% for quotation in quotations %}
+                    <tr>
+                        <th scope="row">{{ quotation.id }}</th>
+                        <td>{{ quotation.company }}</td>
+                        <td>{{ quotation.mail }}</td>
+                        <td>{{ quotation.phone }}</td>
+                        <td>{{ quotation.createdAt | date("d/m/Y") }}</td>
+                        <td>
+                            {% if quotation.status == 0 %}
+                                <span class="badge badge-success">Nouveau</span></td>
+                            {% elseif quotation.status == 1 %}
+                                <span class="badge badge-warning">En cours</span></td>
+                            {% elseif quotation.status == 2 %}
+                                <span class="badge badge-secondary">Terminé</span></td>
+                            {% elseif quotation.status == 3 %}
+                                <span class="badge badge-danger">Annulé</span></td>
+                            {% endif %}
+                        <td>
+                            <a href="{{ path('admin_quotation.show', {'id': quotation.id}) }}">
+                                <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="#">
+                                <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
                 <tr>
-                    <th scope="row">{{ quotation.id }}</th>
-                    <td>{{ quotation.company }}</td>
-                    <td>{{ quotation.mail }}</td>
-                    <td>{{ quotation.phone }}</td>
-                    <td>{{ quotation.createdAt | date("d/m/Y") }}</td>
-                    <td>
-                        {% if quotation.status == 0 %}
-                            <span class="badge badge-success">Nouveau</span></td>
-                        {% elseif quotation.status == 1 %}
-                            <span class="badge badge-warning">En cours</span></td>
-                        {% elseif quotation.status == 2 %}
-                            <span class="badge badge-secondary">Terminé</span></td>
-                        {% elseif quotation.status == 3 %}
-                            <span class="badge badge-danger">Annulé</span></td>
-                        {% endif %}
-                    <td>
-                        <a href="{# {{ path('quotations.show', {id: '1'}) }} #}">
-                            <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="#">
-                            <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">
-                        </a>
-                    </td>
+                    <td>Il n'y aucune demande de devis.</td>
                 </tr>
-            {% endfor %}
+            {% endif %}
+
             </tbody>
         </table>
     </div>

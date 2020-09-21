@@ -5,17 +5,27 @@
 
 {% block body %}
 <div class="container">
-    <h3 class="pt-3 h3-admin"><img src="{{ asset('images/file-system.svg') }}" width="26" alt="Devis"> Demande de devis - N°: 1 <span class="badge badge-success ml-3">Nouveau</span></h3>
+    <h3 class="pt-3 h3-admin"><img src="{{ asset('images/file-system.svg') }}" width="26" alt="Devis"> Demande de devis - N°: {{ quotation.id }}
+        {% if quotation.status == 0 %}
+            <span class="badge badge-success ml-3">Nouveau</span>
+        {% elseif quotation.status == 1 %}
+            <span class="badge badge-warning ml-3">En cours</span>
+        {% elseif quotation.status == 2 %}
+            <span class="badge badge-secondary ml-3">Terminé</span>
+        {% elseif quotation.status == 3 %}
+            <span class="badge badge-danger ml-3">Annulé</span>
+        {% endif %}
+    </h3>
     <div class="row mt-3">
         <div class="col-lg-5 my-3">
             <ul class="list-group">
-                <li class="list-group-item">Nom : <span class="font-weight-bold ml-2">Cristophe Lambert</span></li>
-                <li class="list-group-item">Entreprise : 	<span class="font-weight-bold ml-2">General Electrique</span></li>
-                <li class="list-group-item">Email : <span class="font-weight-bold ml-2">c.lambert@general-electrique.fr</span></li>
-                <li class="list-group-item">Téléphone : <span class="font-weight-bold ml-2">0132456567</span></li>
+                <li class="list-group-item">Nom : <span class="font-weight-bold ml-2">{{ quotation.name }}</span></li>
+                <li class="list-group-item">Entreprise : <span class="font-weight-bold ml-2">{{ quotation.company }}</span></li>
+                <li class="list-group-item">Email : <span class="font-weight-bold ml-2">{{ quotation.mail }}</span></li>
+                <li class="list-group-item">Téléphone : <span class="font-weight-bold ml-2">{{ quotation.phone }}</span></li>
                 <li class="list-group-item">
                     <span class='zoom' id='ex1'>
-                        <img src="{{ asset('images/carte-defectueuse.jpg') }}" class="img-fluid img-thumbnail" alt="Photo de la carte">
+                        <img src="{{ vich_uploader_asset(quotation, 'imageFile') }}" class="img-fluid img-thumbnail" alt="Photo de la carte">
                     </span>
                     <a class="btn btn-sm btn-secondary" href="#" role="button">Télécharger la photo</a>
                 </li>       
@@ -24,9 +34,9 @@
         <div class="col-lg-7 my-3">
             <div class="message-client">
                 <div class="container">
-                    Demande reçu le : <span class="badge badge-primary mb-4">18-09-2020</span>
+                    Demande reçu le : <span class="badge badge-primary mb-4">{{ quotation.createdAt | date("d/m/Y") }}</span>
                     <h3 class="pb-3">Message du client : </h3>
-                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hiddensd dsdsd saezr zerr rzrar ghghgf fff.</p>
+                    <p>{{ quotation.quoteMessage | nl2br }}</p>
                 </div>
             </div>
 
@@ -35,17 +45,12 @@
                     <div class="p-2">
                         Statut :
                     </div>
-                    <form class="">
+                    {{ form_start(form) }}
                         <div class="form-group">
-                            <select class="custom-select">
-                                <option selected></option>
-                                <option value="0">Nouveau</option>
-                                <option value="1">En cours</option>
-                                <option value="2">Terminié</option>
-                                <option value="3">Annulé</option>
-                            </select>   
+                            {{ form_widget(form.status) }}
                         </div>
-                    </form>
+                        <button class="btn btn-sm btn-secondary" type="submit">Changer</button>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>    

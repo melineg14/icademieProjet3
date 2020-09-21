@@ -30,13 +30,13 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link ancre" href="{{ path('admin_quotation') }}"><img src="{{ asset('images/file-system.svg') }}" width="20" alt="Devis"> Gestion des devis</a>
+                                <a class="nav-link ancre" href="{{ path('admin_quotation.index') }}"><img src="{{ asset('images/file-system.svg') }}" width="20" alt="Devis"> Gestion des devis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('admin_appointment') }}"><img src="{{ asset('images/calendar.svg') }}" width="20" alt="Rendez-vous"> Gestion des rendez-vous</a>
+                                <a class="nav-link" href="{{ path('admin_appointment.index') }}"><img src="{{ asset('images/calendar.svg') }}" width="20" alt="Rendez-vous"> Gestion des rendez-vous</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('admin_advice') }}"><img src="{{ asset('images/post.svg') }}" width="20" alt="Conseils"> Conseils</a>
+                                <a class="nav-link" href="{{ path('admin_advice.index') }}"><img src="{{ asset('images/post.svg') }}" width="20" alt="Conseils"> Conseils</a>
                             </li>     
                         </ul>
                         <a class="btn btn-sm btn-primary" href="{{ path('logout') }}"><img class="mb-1" src="{{ asset('images/lock.svg') }}" width="16" alt="Déconnexion"> Déconnexion</a>

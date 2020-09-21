@@ -1,4 +1,4 @@
-{# templates/admin/contact.html.twig #}
+{# templates/admin/contact/index.html.twig #}
 {% extends 'admin/base.html.twig' %}
 
 {% block title %}Gestion des rendez-vous{% endblock %}
@@ -37,30 +37,36 @@
                 </tr>
             </thead>
             <tbody>
-                {% for appointment in appointments %}
+                {% if appointments %}
+                    {% for appointment in appointments %}
+                    <tr>
+                        <th scope="row">{{ appointment.id }}</th>
+                        <td>{{ appointment.company }}</td>
+                        <td>{{ appointment.mail }}</td>
+                        <td>{{ appointment.phone }}</td>
+                        <td>{{ appointment.createdAt  | date("d/m/Y") }}</td>
+                        {% if date(appointment.createdAt) > date('-2days', 'Europe/Paris') %} 
+                            <td><span class="badge badge-success">Nouveau</span></td>
+                        {% else %}
+                        <td></td>
+                        {% endif %}
+                        <td>
+                            <a href="{{ path('admin_appointment.show', {'id': appointment.id }) }}">
+                                <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="">
+                                <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
                 <tr>
-                    <th scope="row">{{ appointment.id }}</th>
-                    <td>{{ appointment.company }}</td>
-                    <td>{{ appointment.mail }}</td>
-                    <td>{{ appointment.phone }}</td>
-                    <td>{{ appointment.createdAt  | date("d/m/Y") }}</td>
-                    {% if date(appointment.createdAt) > date('-2days', 'Europe/Paris') %} 
-                        <td><span class="badge badge-success">Nouveau</span></td>
-                    {% else %}
-                    <td></td>
-                    {% endif %}
-                    <td>
-                        <a href="{# {{ path('contact.show', {id: '1'}) }} #}">
-                            <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
-                        </a>
-                    </td>
-                    <td>
-                        <a href="">
-                            <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">
-                        </a>
-                    </td>
+                    <td>Il n'y aucune demande de prise de rendez-vous.</td>
                 </tr>
-                {% endfor %}
+                {% endif %}
             </tbody>
         </table>
     </div>

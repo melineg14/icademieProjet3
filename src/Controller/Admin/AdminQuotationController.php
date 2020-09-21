@@ -2,7 +2,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Quotation;
+use App\Form\QuotationStatusType;
 use App\Repository\QuotationRepository;
+use App\Service\QuotationService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +15,26 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminQuotationController extends AbstractController
 {
     /**
-     * @Route("/admin/devis", name="admin_quotation")
+     * @var QuotationRepository
+     */
+    private $repository;
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $manager;
+
+    public function __construct(QuotationRepository $repository, EntityManagerInterface $manager)
+    {
+        $this->repository = $repository;
+        $this->manager = $manager;
+    }
+
+    /**
+     * @Route("/admin/devis", name="admin_quotation.index")
      * @return Response
      */
-    public function index(Request $request, QuotationRepository $repository): Response
+    public function index(Request $request): Response
     {
         $quote = new Quotation();
         $form = $this->createFormBuilder($quote)
@@ -26,15 +45,14 @@ class AdminQuotationController extends AbstractController
                     ]
                 ])
                     ->getForm();
-        
         $form->handleRequest($request);
 
         if($form->isSubmitted()) {
             $status = $form->get('status')->getData();
-            $quotes = $repository->findByStatus($status);
+            $quotes = $this->repository->findByStatus($status);
         }
         else {
-            $quotes = $repository->findAllByDate();
+            $quotes = $this->repository->findAllByDate();
         }
 
         return $this->render('admin/quotation/index.html.twig', [
@@ -44,12 +62,34 @@ class AdminQuotationController extends AbstractController
     }
 
     /**
-     * @Route("/admin/devis/{id}", name="admin_quotation.index")
+     * @Route("/admin/devis/{id}", name="admin_quotation.show")
      * @return Response
      */
-    public function show(): Response
+    public function show(Quotation $quote, Request $request): Response
     {
-        return $this->render('admin/quotation/show.html.twig');
+        $quotation = new Quotation();
+        $form = $this->createFormBuilder($quotation)
+                    ->add('status', ChoiceType::class, [
+                    'choices' => $this->getChoices(),
+                    'label' => 'Statut',
+                    'attr' => [
+                        'class' => 'custom-select'
+                    ]
+                ])
+                    ->getForm();
+        
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()) {
+            $quotation->setUpdatedAt(new \DateTime());
+            $newStatus = $form->get('status')->getData();
+            $this->repository->updateStatus($newStatus, $quote);
+        }
+
+        return $this->render('admin/quotation/show.html.twig', [
+            'quotation' => $quote,
+            'form' => $form->createView()
+        ]);
     }
 
     public function getChoices()

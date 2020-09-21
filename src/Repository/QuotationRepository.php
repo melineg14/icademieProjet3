@@ -45,6 +45,19 @@ class QuotationRepository extends ServiceEntityRepository
         ;
     }
 
+    public function updateStatus($value, $id)
+    {
+        return $this->createQueryBuilder('q')
+            ->update()
+            ->set('q.status', ':val')
+            ->setParameter('val', $value)
+            ->where('q.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getSingleScalarResult()
+        ;
+    }
+
     /*
     public function findOneBySomeField($value): ?Quotation
     {

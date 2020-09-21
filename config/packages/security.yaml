@@ -18,7 +18,7 @@ security:
             form_login:
                 login_path: security.login
                 check_path: security.login
-                default_target_path: admin_quotation
+                default_target_path: admin_quotation.index
             logout:
                 path: /logout
                 target: /
