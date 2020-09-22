@@ -4,11 +4,13 @@ vich_uploader:
     mappings:
         quotation_image:
             uri_prefix: /images/quotations
+            delete_on_remove: true
             upload_destination: '%kernel.project_dir%/public/images/quotations'
             namer:
                 service: Vich\UploaderBundle\Naming\UniqidNamer
         advice_image:
             uri_prefix: /images/advices
+            delete_on_remove: true
             upload_destination: '%kernel.project_dir%/public/images/advices'
             namer:
                 service: Vich\UploaderBundle\Naming\UniqidNamer
