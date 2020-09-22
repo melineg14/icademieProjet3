@@ -27,7 +27,7 @@
                     <span class='zoom' id='ex1'>
                         <img src="{{ vich_uploader_asset(quotation, 'imageFile') }}" class="img-fluid img-thumbnail" alt="Photo de la carte">
                     </span>
-                    <a class="btn btn-sm btn-secondary" href="#" role="button">Télécharger la photo</a>
+                    <a class="btn btn-sm btn-secondary" href="{{ vich_uploader_asset(quotation, 'imageFile') }}" role="button">Télécharger la photo</a>
                 </li>       
             </ul>
         </div>

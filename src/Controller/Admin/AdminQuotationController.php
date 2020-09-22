@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Controller\Admin;
 
 use App\Entity\Quotation;
@@ -38,20 +39,19 @@ class AdminQuotationController extends AbstractController
     {
         $quote = new Quotation();
         $form = $this->createFormBuilder($quote)
-                    ->add('status', ChoiceType::class, [
-                    'choices' => $this->getChoices(),
-                    'attr' => [
-                        'class' => 'custom-select',
-                    ]
-                ])
-                    ->getForm();
+            ->add('status', ChoiceType::class, [
+                'choices' => $this->getChoices(),
+                'attr' => [
+                    'class' => 'custom-select',
+                ]
+            ])
+            ->getForm();
         $form->handleRequest($request);
 
-        if($form->isSubmitted()) {
+        if ($form->isSubmitted()) {
             $status = $form->get('status')->getData();
             $quotes = $this->repository->findByStatus($status);
-        }
-        else {
+        } else {
             $quotes = $this->repository->findAllByDate();
         }
 
@@ -69,18 +69,18 @@ class AdminQuotationController extends AbstractController
     {
         $quotation = new Quotation();
         $form = $this->createFormBuilder($quotation)
-                    ->add('status', ChoiceType::class, [
-                    'choices' => $this->getChoices(),
-                    'label' => 'Statut',
-                    'attr' => [
-                        'class' => 'custom-select'
-                    ]
-                ])
-                    ->getForm();
-        
+            ->add('status', ChoiceType::class, [
+                'choices' => $this->getChoices(),
+                'label' => 'Statut',
+                'attr' => [
+                    'class' => 'custom-select'
+                ]
+            ])
+            ->getForm();
+
         $form->handleRequest($request);
 
-        if($form->isSubmitted()) {
+        if ($form->isSubmitted()) {
             $quotation->setUpdatedAt(new \DateTime());
             $newStatus = $form->get('status')->getData();
             $this->repository->updateStatus($newStatus, $quote);
@@ -96,9 +96,22 @@ class AdminQuotationController extends AbstractController
     {
         $choices = Quotation::STATUS;
         $output = [];
-        foreach($choices as $key => $value) {
+        foreach ($choices as $key => $value) {
             $output[$value] = $key;
         }
         return $output;
+    }
+
+    /**
+     * @Route("/admin/devis/suppression/{id}", name="admin_quotation.delete", methods="DELETE")
+     */
+    public function delete(Quotation $quote, Request $request)
+    {
+        if ($this->isCsrfTokenValid('delete' . $quote->getId(), $request->get('_token'))) {
+            $this->manager->remove($quote);
+            $this->manager->flush();
+            $this->addFlash('success', 'Demande de devis supprimée avec succès.');
+        }
+        return $this->redirectToRoute('admin_quotation.index');
     }
 }

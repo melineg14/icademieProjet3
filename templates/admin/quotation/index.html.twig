@@ -6,7 +6,9 @@
 {% block body %}
 <div class="container">
     <h3 class="pt-3 h3-admin"><img src="{{ asset('images/file-system.svg') }}" width="26" alt="Devis"> Gestion des devis</h3>
-
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
     <div class="d-flex justify-content-end">
         <div class="p-2">
             <img src="{{ asset('images/filter.svg') }}" width="26" alt="Filtrer">
@@ -57,18 +59,27 @@
                             </a>
                         </td>
                         <td>
-                            <a href="#">
-                                <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">
-                            </a>
+                            <form method="post" action="{{ path('admin_quotation.delete', {'id': quotation.id}) }}" onsubmit="return confirm('Êtes-vous réellement sûr de vouloir supprimer cette demande de devis ?')">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ quotation.id) }}">
+                                <button class="delete-button">
+                                    <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">  
+                                </button>
+                                <a type="button" href=""></a>
+                            </form>
                         </td>
                     </tr>
                 {% endfor %}
             {% else %}
                 <tr>
-                    <td>Il n'y aucune demande de devis.</td>
+                    <td>Il n'y aucune demande de devis à afficher.</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                 </tr>
             {% endif %}
-
             </tbody>
         </table>
     </div>

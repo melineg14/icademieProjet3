@@ -41,7 +41,7 @@ class QuotationController extends AbstractController
             $this->addFlash('success', 'Votre demande de devis a bien été envoyée, vous recevrez une réponse sous 24h.');
         }
 
-        return $this->render('pages/quotations.html.twig', [
+        return $this->render('pages/quotation.html.twig', [
             'form' => $form->createView()
         ]);
     } 

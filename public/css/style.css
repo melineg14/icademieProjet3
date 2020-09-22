@@ -768,6 +768,15 @@ button:focus {
   outline: 5px auto -webkit-focus-ring-color;
 }
 
+.delete-button {
+  border: 0;
+  background-color: transparent;
+}
+
+.delete-button :hover {
+  background-color: transparent;
+}
+
 input,
 button,
 select,

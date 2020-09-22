@@ -18,7 +18,11 @@
 					{{ advice.title }}</h1>
 				<img src="{{ vich_uploader_asset(advice, 'imageFile') }}" alt="photographie liée à l'article" class="img-fluid card-img-top card-img-bottom" loading="lazy">
 				<div class="py-5">
-					<p>{{ advice.content | nl2br }}</p>
+					<p>
+					{% autoescape %}
+    					{{ advice.content | raw }}
+					{% endautoescape %}
+					</p>
 				</div>
 			</div>
 		</div>
