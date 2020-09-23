@@ -43,7 +43,8 @@ class QuotationType extends AbstractType
                 'label' => 'Message',
                 'attr' => [
                     'class' => 'form-control',
-                    'rows' => 6
+                    'rows' => 6,
+                    'placeholder' => 'Merci de renseigner si possible le secteur industriel où l’entreprise opère, le type de machine ainsi que le type de carte ou système défectueux.'
                 ]
             ])
             ->add('imageFile', FileType::class, [
