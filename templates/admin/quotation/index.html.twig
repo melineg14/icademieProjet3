@@ -47,9 +47,9 @@
                 {% for quotation in quotations %}
                     <tr>
                         <th scope="row">{{ quotation.id }}</th>
-                        <td>{{ quotation.company }}</td>
-                        <td>{{ quotation.mail }}</td>
-                        <td>{{ quotation.phone }}</td>
+                        <td>{{ quotation.company|escape }}</td>
+                        <td>{{ quotation.mail|escape }}</td>
+                        <td>{{ quotation.phone|escape }}</td>
                         <td>{{ quotation.createdAt | date("d/m/Y") }}</td>
                         <td>
                             {% if quotation.status == 0 %}

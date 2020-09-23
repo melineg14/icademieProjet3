@@ -19,10 +19,10 @@
     <div class="row mt-3">
         <div class="col-lg-5 my-3">
             <ul class="list-group">
-                <li class="list-group-item">Nom : <span class="font-weight-bold ml-2">{{ quotation.name }}</span></li>
-                <li class="list-group-item">Entreprise : <span class="font-weight-bold ml-2">{{ quotation.company }}</span></li>
-                <li class="list-group-item">Email : <span class="font-weight-bold ml-2">{{ quotation.mail }}</span></li>
-                <li class="list-group-item">Téléphone : <span class="font-weight-bold ml-2">{{ quotation.phone }}</span></li>
+                <li class="list-group-item">Nom : <span class="font-weight-bold ml-2">{{ quotation.name|escape }}</span></li>
+                <li class="list-group-item">Entreprise : <span class="font-weight-bold ml-2">{{ quotation.company|escape }}</span></li>
+                <li class="list-group-item">Email : <span class="font-weight-bold ml-2">{{ quotation.mail|escape }}</span></li>
+                <li class="list-group-item">Téléphone : <span class="font-weight-bold ml-2">{{ quotation.phone|escape }}</span></li>
                 <li class="list-group-item">
                     <span class='zoom' id='ex1'>
                         <img src="{{ vich_uploader_asset(quotation, 'imageFile') }}" class="img-fluid img-thumbnail" alt="Photo de la carte">
@@ -36,7 +36,7 @@
                 <div class="container">
                     Demande reçu le : <span class="badge badge-primary mb-4">{{ quotation.createdAt | date("d/m/Y") }}</span>
                     <h3 class="pb-3">Message du client : </h3>
-                    <p>{{ quotation.quoteMessage | nl2br }}</p>
+                    <p>{{ quotation.quoteMessage |nl2br |escape }}</p>
                 </div>
             </div>
 

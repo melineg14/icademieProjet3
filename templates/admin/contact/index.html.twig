@@ -28,10 +28,10 @@
                     {% for appointment in appointments %}
                     <tr>
                         <th scope="row">{{ appointment.id }}</th>
-                        <td>{{ appointment.company }}</td>
-                        <td>{{ appointment.mail }}</td>
-                        <td>{{ appointment.phone }}</td>
-                        <td>{{ appointment.appDate }}</td>
+                        <td>{{ appointment.company|escape }}</td>
+                        <td>{{ appointment.mail|escape }}</td>
+                        <td>{{ appointment.phone|escape }}</td>
+                        <td>{{ appointment.appDate|escape }}</td>
                         {% if date(appointment.createdAt) > date('-2days', 'Europe/Paris') %} 
                             <td><span class="badge badge-success">Nouveau</span></td>
                         {% else %}

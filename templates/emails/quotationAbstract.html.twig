@@ -95,7 +95,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Nom de l'entreprise :
 													</span>
-													{{ quotation.company }}
+													{{ quotation.company|escape }}
 												</div>
 											</td>
 										</tr>
@@ -105,7 +105,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Nom du demandeur :
 													</span>
-													{{ quotation.name }}
+													{{ quotation.name|escape }}
 												</div>
 											</td>
 										</tr>
@@ -115,7 +115,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Numéro de téléphone :
 													</span>
-													{{ quotation.phone }}
+													{{ quotation.phone|escape }}
 												</div>
 											</td>
 										</tr>
@@ -125,7 +125,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														E-mail :
 													</span>
-													{{ quotation.mail }}
+													{{ quotation.mail|escape }}
 												</div>
 											</td>
 										</tr>
@@ -151,7 +151,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Message du demandeur :
 													</span>
-													{{ quotation.quoteMessage | nl2br }}
+													{{ quotation.quoteMessage |nl2br |escape }}
 												</div>
 											</td>
 										</tr>

@@ -89,7 +89,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Nom de l'entreprise :
 													</span>
-													{{ appointment.company }}
+													{{ appointment.company|escape }}
 												</div>
 											</td>
 										</tr>
@@ -99,7 +99,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Nom du demandeur :
 													</span>
-													{{ appointment.name }}
+													{{ appointment.name|escape }}
 												</div>
 											</td>
 										</tr>
@@ -109,7 +109,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Numéro de téléphone :
 													</span>
-													{{ appointment.phone }}
+													{{ appointment.phone|escape }}
 												</div>
 											</td>
 										</tr>
@@ -119,7 +119,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														E-mail :
 													</span>
-													{{ appointment.mail }}
+													{{ appointment.mail|escape }}
 												</div>
 											</td>
 										</tr>
@@ -129,7 +129,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Date du rendez-vous :
 													</span>
-													Le : {{ appointment.appDate }}
+													Le : {{ appointment.appDate|escape }}
 												</div>
 											</td>
 										</tr>
@@ -139,7 +139,7 @@
 													<span style="font-size:16px;font-weight:bold;text-align:justify;">
 														Message du demandeur :
 													</span>
-													{{ appointment.appMessage | nl2br }}
+													{{ appointment.appMessage |nl2br |escape }}
 												</div>
 											</td>
 										</tr>
