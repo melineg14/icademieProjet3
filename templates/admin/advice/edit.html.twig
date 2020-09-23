@@ -8,32 +8,44 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/trix.css') }}">
 {% endblock %}
 
+{% form_theme form _self %}
+
+{% block form_errors %}
+    {% spaceless %}
+        {% for error in errors %}
+            <div class="alert alert-danger">
+                {{ error.message }}
+            </div>
+        {% endfor %}
+    {% endspaceless %}
+{% endblock form_errors %}
+
 {% block body %}
 <div class="container">
     <h3 class="pt-3 h3-admin"><img src="{{ asset('images/edit.svg') }}" width="26" alt="Conseil"> Modifier un conseil</h3>
     {{ form_start(form) }}
         <div class="form-group">
-            {{ form_errors(form.title) }}
             {{ form_label(form.title) }} <span id="titleCount"></span>
             {{ form_widget(form.title) }}
         </div>
+        {{ form_errors(form.title) }}
         <div class="form-group">
-            {{ form_errors(form.description) }}
             {{ form_label(form.description) }} <span id="descCount"></span>
             {{ form_widget(form.description) }}
         </div>
+        {{ form_errors(form.description) }}
         <div class="form-group trix">
-            {{ form_errors(form.content) }}
             {{ form_label(form.content) }}
             {{ form_widget(form.content, {'id': 'content'}) }}
             <trix-editor input="content"></trix-editor>
         </div>
+        {{ form_errors(form.content) }}
         <div>
             <img src="{{ vich_uploader_asset(advice, 'imageFile') }}" alt="photo" width="200" class="img-thumbnail">
         </div>
         <div class="form-group">
             {{ form_errors(form.imageFile) }}
-            {{ form_label(form.imageFile) }}
+            <label for="advice_imageFile">Choisir une nouvelle image</label>
             {{ form_widget(form.imageFile) }}
         </div>
         <div class="mt-1 float-right">

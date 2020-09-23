@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\Appointment;
@@ -17,7 +18,7 @@ class ContactController extends AbstractController
      */
     private $manager;
 
-    public function __construct(EntityManagerInterface $manager) 
+    public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
     }
@@ -31,17 +32,17 @@ class ContactController extends AbstractController
         $app = new Appointment();
         $form = $this->createForm(AppointmentType::class, $app);
         $form->handleRequest($request);
-        
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $app->setCreatedAt(new \DateTime());
             $this->manager->persist($app);
             $this->manager->flush();
             $notification->notify($app);
             $notification->abstract($app);
             $this->addFlash('success', 'Votre demande de prise de rendez-vous a bien été envoyée. Nous vous répondrons dans les plus brefs délais.');
+            return $this->redirectToRoute('contact');
         }
         return $this->render('pages/contact.html.twig', [
             'form' => $form->createView()
         ]);
-    } 
+    }
 }

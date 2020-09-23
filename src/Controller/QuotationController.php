@@ -39,6 +39,7 @@ class QuotationController extends AbstractController
             $notification->notify($quote);
             $notification->abstract($quote);
             $this->addFlash('success', 'Votre demande de devis a bien été envoyée, vous recevrez une réponse sous 24h.');
+            return $this->redirectToRoute('quotation');
         }
 
         return $this->render('pages/quotation.html.twig', [

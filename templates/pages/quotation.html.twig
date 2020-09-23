@@ -80,7 +80,7 @@
                     {{ form_label(form.name) }}
                     {{ form_widget(form.name) }}
                 </div>    
-                {{ form_errors(form.name) }}      
+                {{ form_errors(form.name) }}  
                 <div class="form-row">
                     <div class="form-group col-lg-6">
                         {{ form_row(form.company) }}
@@ -102,10 +102,12 @@
                     </div>
                 </div>
                 {{ form_errors(form.mail) }}
-                {{ form_errors(form.imageFile) }}   
+                {{ form_errors(form.imageFile) }}  
                 <div class="form-group">
-                    {{ form_row(form.quote_message) }}
+                    {{ form_label(form.quote_message) }}
+                    {{ form_widget(form.quote_message) }}
                 </div>
+                {{ form_errors(form.quote_message) }}
                 <p>
                     <small>
                         En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par

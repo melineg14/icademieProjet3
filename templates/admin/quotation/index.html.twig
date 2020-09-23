@@ -19,10 +19,14 @@
                 {{ form_widget(form.status) }}
             </div>
             <div class="p3 mt-1">
-                <button class="btn btn-sm btn-secondary" type="submit">Filtrer</button>
+                <button class="btn btn-sm btn-primary" type="submit">Filtrer</button>
+            </div>
+    {{ form_end(form) }}
+            <form method="post" action="{{ path('admin_quotation.index') }}"></form>
+            <div class="p3 ml-1 mt-1">
+                <button class="btn btn-sm btn-secondary" name="reset" type="submit">Réinitialiser</button>
             </div>
         </div>
-    {{ form_end(form) }}
 
     <div class="table-responsive">
         <table class="table table-striped table-sm">
@@ -69,7 +73,6 @@
                                 <button class="delete-button">
                                     <img src="{{ asset('images/x-mark.svg') }}" width="26" alt="Supprimer">  
                                 </button>
-                                <a type="button" href=""></a>
                             </form>
                         </td>
                     </tr>
@@ -77,6 +80,8 @@
             {% else %}
                 <tr>
                     <td>Il n'y aucune demande de devis à afficher.</td>
+                    <td></td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>

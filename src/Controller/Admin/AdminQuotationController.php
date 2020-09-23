@@ -55,6 +55,10 @@ class AdminQuotationController extends AbstractController
             $quotes = $this->repository->findAllByDate();
         }
 
+        if(isset($_POST['reset'])) {
+            $quotes = $this->repository->findAllByDate();
+        }
+
         return $this->render('admin/quotation/index.html.twig', [
             'form' => $form->createView(),
             'quotations' => $quotes,
@@ -69,7 +73,7 @@ class AdminQuotationController extends AbstractController
     {
         $quotation = new Quotation();
         $form = $this->createFormBuilder($quotation)
-            ->add('status', ChoiceType::class, [
+            ->add('status', ChoiceType::class, [ 
                 'choices' => $this->getChoices(),
                 'label' => 'Statut',
                 'attr' => [

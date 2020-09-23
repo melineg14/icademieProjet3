@@ -27,7 +27,7 @@ class Advice
      * @ORM\Column(type="string", length=60)
      * @Assert\NotBlank()
      * @Assert\Length(
-     * max=150,
+     * max=60,
      * maxMessage="Le titre doit faire maximum 60 caractères."
      * )
      */

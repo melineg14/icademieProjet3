@@ -71,8 +71,10 @@
                 </div>
                 {{ form_errors(form.mail) }}
                 <div class="form-group">
-                    {{ form_row(form.app_message) }}
+                    {{ form_label(form.app_message) }}
+                    {{ form_widget(form.app_message) }}
                 </div>
+                {{ form_errors(form.app_message) }}
                 <p>
                     <small>
                         En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par

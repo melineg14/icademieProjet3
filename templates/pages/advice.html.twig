@@ -18,10 +18,10 @@
 								<a href="{{ path('advice.show', {id: advice.id, slug: advice.slug}) }}"><img src="{{ vich_uploader_asset(advice, 'imageFile') }}" alt="photographie liée à l'article" class="img-fluid card-img-top" loading="lazy"></a>
 								<div class="card-body">
 									<a href="{{ path('advice.show', {id: advice.id, slug: advice.slug}) }}">
-										<h2 class="my-3 card-title">{{ advice.title }}</h2>
+										<h2 class="my-3 card-title">{{ advice.title |truncate(34, false, " [...]") }}</h2>
 									</a>
 									<a href="{{ path('advice.show', {id: advice.id, slug: advice.slug}) }}">
-										<p class="card-text">{{ advice.description }}</p>
+										<p class="card-text">{{ advice.description |truncate(87, false, " [...]") }}</p>
 									</a>
 								</div>
 							</div>

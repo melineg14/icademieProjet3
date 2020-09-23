@@ -17,7 +17,6 @@ class AdviceType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Maximum 60 caractères.',
@@ -25,7 +24,6 @@ class AdviceType extends AbstractType
                 ]
             ])
             ->add('description', TextareaType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Maximum 150 caractères.',
@@ -34,7 +32,6 @@ class AdviceType extends AbstractType
                 ]
             ])
             ->add('content', HiddenType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control',
                     'rows' => 6,
@@ -43,6 +40,7 @@ class AdviceType extends AbstractType
             ])
             ->add('imageFile', FileType::class, [
                 'label' => 'Image',
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control-file'
                 ]

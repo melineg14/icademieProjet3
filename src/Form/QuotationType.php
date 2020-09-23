@@ -20,31 +20,26 @@ class QuotationType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('company', TextType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('mail', EmailType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('phone', TelType::class, [
-                'required' => true,
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('quote_message', TextareaType::class, [
-                'required' => true,
                 'label' => 'Message',
                 'attr' => [
                     'class' => 'form-control',
@@ -52,7 +47,7 @@ class QuotationType extends AbstractType
                 ]
             ])
             ->add('imageFile', FileType::class, [
-                'required' => true,
+                'label' => 'Image',
                 'attr' => [
                     'class' => 'form-control-file'
                 ]
