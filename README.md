@@ -1,13 +1,6 @@
-Etapes de config :
+Veuillez trouver ci-dessous les commandes relatives à Docker :
 
-1) lancer la commande suivante dans le répertoire : docker-compose build
-2) se connecter au bash php: docker exec -it -u dev sf4_php bash
-3) vérifier d'être bien dans le dossier sf4
-4) composer install && npm install
-
-
-Commandes Docker basiques :
-
+Commandes de manière générale :
 docker-compose ps: voir les containeurs actifs
 docker-compose up -d: lancer les containers
 docker-compose down: quitter les containers
