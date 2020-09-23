@@ -343,6 +343,9 @@ footer .copyright, footer .copyright a {
   .contact h1 {
     padding-top: 0;
   }
+  .contact .btn {
+    width: 100% !important;
+  }
 }
 .contact .rgpd p {
   font-size: 0.8rem;
@@ -402,6 +405,9 @@ footer .copyright, footer .copyright a {
 .advices h2 {
   font-size: 1.125rem;
   font-weight: 700;
+}
+.advices .p-sub {
+  font-size: 1rem;
 }
 .advices p {
   font-size: 0.875rem;
@@ -536,6 +542,27 @@ footer .copyright, footer .copyright a {
 }
 .admin .trix-button-group--file-tools {
   display: none !important;
+}
+
+.delete-button {
+  border: 0 !important;
+  background-color: transparent !important;
+}
+
+.delete-button:hover, .delete-button:focus, .delete-button:visited {
+  background-color: transparent !important;
+  outline: 0 !important;
+  border: 0 !important;
+}
+
+.alert-danger {
+  font-size: 0.8rem !important;
+  padding: 6px !important;
+  border: 0 !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.07rem #5c39fb !important;
 }
 
 /*!
@@ -766,15 +793,6 @@ button {
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
-}
-
-.delete-button {
-  border: 0;
-  background-color: transparent;
-}
-
-.delete-button :hover {
-  background-color: transparent;
 }
 
 input,

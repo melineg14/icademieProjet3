@@ -40,7 +40,7 @@ class Appointment
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank()
      * @Assert\Email(
-     * message = "L'e-mail {{ value }} n'est pas une adresse mail valide. Elle doit ressembler à ceci : exemple@exemple.com"
+     * message = "L'e-mail {{ value }} n'est pas une adresse mail valide."
      * )
      */
     private $mail;
@@ -51,7 +51,7 @@ class Appointment
      * @Assert\Regex(
      * pattern="/^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$/i",
      * htmlPattern="^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$",
-     * message="Le format du numéro de téléphone n'est pas valide. Formats acceptés : +33X XX XX XX XX ou XX XX XX XX XX."
+     * message="Le numéro de téléphone n'est pas valide."
      * )
      */
     private $phone;

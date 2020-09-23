@@ -27,7 +27,7 @@
                     <span class='zoom' id='ex1'>
                         <img src="{{ vich_uploader_asset(quotation, 'imageFile') }}" class="img-fluid img-thumbnail" alt="Photo de la carte">
                     </span>
-                    <a class="btn btn-sm btn-secondary" href="{{ vich_uploader_asset(quotation, 'imageFile') }}" role="button">Télécharger la photo</a>
+                    <a class="btn btn-sm btn-secondary" href="{{ vich_uploader_asset(quotation, 'imageFile') }}" role="button" download="{{ quotation.company }}">Télécharger la photo</a>
                 </li>       
             </ul>
         </div>
@@ -40,19 +40,20 @@
                 </div>
             </div>
 
-            <div class="float-right mb-5">
-                <div class="d-flex mt-3">
-                    <div class="p-2">
+            {{ form_start(form) }}
+                <div class="d-flex flex-row float-right mt-5">
+                    <div class="mr-2 mt-2">
                         Statut :
                     </div>
-                    {{ form_start(form) }}
-                        <div class="form-group">
-                            {{ form_widget(form.status) }}
-                        </div>
+                    <div class="mr-2">
+                        {{ form_widget(form.status) }}
+                    </div>
+                    <div class="p3 mt-1">
                         <button class="btn btn-sm btn-secondary" type="submit">Changer</button>
-                    {{ form_end(form) }}
+                    </div>
                 </div>
-            </div>
+            {{ form_end(form) }}
+
         </div>    
     </div>
 </div>
