@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\Advice;
@@ -31,13 +32,13 @@ class AdviceController extends AbstractController
         ]);
     }
 
-     /**
+    /**
      * @Route("/conseils/{slug}-{id}", name="advice.show", requirements={"slug": "[a-z0-9\-]*"})
      * @return Response
      */
     public function show(Advice $advice, $slug): Response
     {
-        if($advice->getSlug() !== $slug) {
+        if ($advice->getSlug() !== $slug) {
             return $this->redirectToRoute('advice.show', [
                 'id' => $advice->getId(),
                 'slug' => $advice->getSlug()
@@ -46,5 +47,5 @@ class AdviceController extends AbstractController
         return $this->render('pages/article.html.twig', [
             'advice' => $advice
         ]);
-    }  
+    }
 }

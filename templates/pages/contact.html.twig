@@ -1,6 +1,10 @@
 {# templates/pages/contact.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% block metaDescription %}L’entreprise RCP électronic se fait un plaisir d’échanger avec vous.{% endblock metaDescription %}
+{% block robots %}index,follow{% endblock robots %}
+{% block title %}Prise de rendez-vous | RCP Electronic{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/datetime-picker.css') }}">
@@ -17,8 +21,6 @@
         {% endfor %}
     {% endspaceless %}
 {% endblock form_errors %}
-
-{% block title %}Prise de rendez-vous{% endblock %}
 
 {% block body %}
 
@@ -77,8 +79,7 @@
                 {{ form_errors(form.app_message) }}
                 <p>
                     <small>
-                        En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par
-                        RCP Electronic.
+                        En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par RCP Electronic.
                         <a class="rgpd-link" data-toggle="collapse" href="#multiCollapseExample1" role="button"
                             aria-expanded="false" aria-controls="multiCollapseExample1">
                             A LIRE ATTENTIVEMENT

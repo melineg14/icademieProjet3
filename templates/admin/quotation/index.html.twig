@@ -1,4 +1,4 @@
-{# templates/admin/quotation.html.twig #}
+{# templates/admin/quotation/index.html.twig #}
 {% extends 'admin/base.html.twig' %}
 
 {% block title %}Gestion des devis{% endblock %}
@@ -62,7 +62,7 @@
                                 <span class="badge badge-danger">Annulé</span></td>
                             {% endif %}
                         <td>
-                            <a href="{{ path('admin_quotation.show', {'id': quotation.id}) }}">
+                            <a href="{{ path('admin_quotation.show', {'id': quotation.id}) }}" title="Afficher">
                                 <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
                             </a>
                         </td>

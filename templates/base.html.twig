@@ -5,10 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="keywords" content="mot-clé 1, mot-clé 2, mot-clé 3" />
-    <meta name="robots" content="index,follow">
-    <title>{% block title %}{% endblock %} | RCP Electronic</title>
+    <meta name="description" content="{% block metaDescription %}{% endblock %}">
+    <meta name="keywords" content="reparation, carte electronique, professionnels, industriels, specialiste, maintenance, devis gratuit 24h">
+    <meta name="robots" content="{% block robots %}{% endblock %}">
+    <title>{% block title %}{% endblock %}</title>
 
     <link rel="apple-touch-icon" href="{{ asset('favicons/apple-touch-icon.png') }}" sizes="180x180">
     <link rel="icon" href="{{ asset('favicons/favicon-32x32.png') }}" sizes="32x32" type="image/png">
@@ -90,17 +90,19 @@
             </div>
             <hr>
             <div class="copyright d-flex">
-                <div class="p-2 flex-fill"><small class="d-flex justify-content-start"><a href="{{ path('notice') }}">Mentions
-                            légales</a></small></div>
-                <div class="p-2 flex-fill"><small class="d-flex justify-content-center">&copy; RCP Electronic
-                        2020</small> </div>
+                <div class="p-2 flex-fill">
+                    <small class="d-flex justify-content-start"><a href="{{ path('notice') }}">Mentions légales</a></small>
+                </div>
+                <div class="p-2 flex-fill">
+                    <small class="d-flex justify-content-center">&copy; RCP Electronic 2020</small>
+                </div>
                 <div class="p-2 flex-fill">
                     <div class="d-flex justify-content-end">
-                        <a href="#" class="mr-4">
-                            <img src="{{ asset('images/link.svg') }}" height="18" alt="" loading="lazy">
+                        <a href="https://fr.linkedin.com/" class="mr-4" target="_blank" title="Linkedin">
+                            <img src="{{ asset('images/link.svg') }}" height="18" alt="Linkedin" loading="lazy">
                         </a>
-                        <a href="https://www.facebook.com/pages/category/Electronics-Company/RCP-Electronic-223892701575773/" target="_blank">
-                            <img src="{{ asset('images/facebook.svg') }}" height="18" alt="" loading="lazy">
+                        <a href="https://www.facebook.com/pages/category/Electronics-Company/RCP-Electronic-223892701575773/" target="_blank" title="Facebook">
+                            <img src="{{ asset('images/facebook.svg') }}" height="18" alt="Facebook" loading="lazy">
                         </a>
                     </div>
                 </div>
@@ -108,18 +110,17 @@
         </div>
     </footer>
     <div class="cookiealert">
-        &#x1F36A; Nous utilisons des cookies pour vous garantir la meilleure expérience possible sur notre site web. <a
-            href="{{ path('notice') }}">En savoir plus</a>
-        <button type="button" class="btn btn-outline-primary btn-sm acceptcookies"
-            aria-label="Close">J'approuve</button>
+        &#x1F36A; Nous utilisons des cookies pour vous garantir la meilleure expérience possible sur notre site web. 
+        <a href="{{ path('notice') }}">En savoir plus</a>
+        <button type="button" class="btn btn-outline-primary btn-sm acceptcookies" aria-label="Close">J'approuve</button>
     </div>
 
     {% block javascripts %}
     <script src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/cookie-consent.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
     {% endblock %}
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>

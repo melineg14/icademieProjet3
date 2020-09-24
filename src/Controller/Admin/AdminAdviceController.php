@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 namespace App\Controller\Admin;
 
 use App\Entity\Advice;
@@ -34,7 +35,7 @@ class AdminAdviceController extends AbstractController
         ]);
     }
 
-     /**
+    /**
      * @Route("/admin/conseils/ajouter", name="admin_advice.add")
      * @return Response
      */
@@ -43,8 +44,8 @@ class AdminAdviceController extends AbstractController
         $advice = new Advice();
         $form = $this->createForm(AdviceType::class, $advice);
         $form->handleRequest($request);
-        
-        if($form->isSubmitted() && $form->isValid()) {
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $advice->setCreatedAt(new \DateTime());
             $this->manager->persist($advice);
             $this->manager->flush();
@@ -66,7 +67,7 @@ class AdminAdviceController extends AbstractController
             'advice' => $advice
         ]);
     }
-    
+
     /**
      * @Route("/admin/conseils/modifier/{id}", name="admin_advice.edit")
      * @return Response
@@ -75,8 +76,8 @@ class AdminAdviceController extends AbstractController
     {
         $form = $this->createForm(AdviceType::class, $advice);
         $form->handleRequest($request);
-        
-        if($form->isSubmitted() && $form->isValid()) {
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $advice->setUpdatedAt(new \DateTime());
             $this->manager->flush();
             $this->addFlash('success', 'Conseil modifié avec succès.');

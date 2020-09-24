@@ -5,7 +5,7 @@
 
 {% block body %}
 <div class="container">
-    <h3 class="pt-3 h3-admin"><img src="{{ asset('images/post.svg') }}" width="26" alt="Conseils">Conseils</h3>
+    <h3 class="pt-3 h3-admin"><img src="{{ asset('images/post.svg') }}" width="26" alt="Conseils"> Conseils</h3>
     <div class="d-flex justify-content-end">
         <div class="p-3">
             <a href="{{ path('admin_advice.add') }}" class="add-advices">                            
@@ -37,12 +37,12 @@
                         <td>{{ advice.title }}</td>
                         <td>{{ advice.updatedAt | date("d/m/Y") }}</td>
                         <td>
-                            <a href="{{ path('admin_advice.show', {'id': advice.id}) }}">
+                            <a href="{{ path('admin_advice.show', {'id': advice.id}) }}" title="Afficher">
                                 <img src="{{ asset('images/view-details.svg') }}" width="26" alt="Afficher">
                             </a>
                         </td>
                         <td>
-                            <a href="{{ path('admin_advice.edit', {'id': advice.id}) }}">
+                            <a href="{{ path('admin_advice.edit', {'id': advice.id}) }}" title="Modifier">
                                 <img src="{{ asset('images/edit.svg') }}" width="26" alt="Modifier">
                             </a>
                         </td>

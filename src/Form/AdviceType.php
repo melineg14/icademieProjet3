@@ -44,8 +44,7 @@ class AdviceType extends AbstractType
                 'attr' => [
                     'class' => 'form-control-file'
                 ]
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -54,5 +53,5 @@ class AdviceType extends AbstractType
             'data_class' => Advice::class,
             'translation_domain' => 'forms'
         ]);
-    }    
+    }
 }

@@ -1,7 +1,9 @@
 {# templates/pages/home.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Réparation de cartes et systèmes électroniques{% endblock %}
+{% block metaDescription %}RCP est spécialisé dans la réparation de tout type et toute marque de cartes électroniques ainsi que de systèmes professionnels et industriels.{% endblock metaDescription %}
+{% block robots %}index,follow{% endblock robots %}
+{% block title %}Réparation de cartes électroniques | RCP Electronic{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -14,22 +16,21 @@
         <div class="col-lg-6">
             <div class="row">
                 <div class="col">
-                    <h1>Réparation de <span class="span-primary">cartes</span> et <span class="span-primary">systèmes
-                            électroniques</span> professionnels et industriels.</h1>
-                    <p class="my-4">Donnez une seconde vie à votre matériel électronique et gagnez du temps tout en
-                        économisant de l'argent.</p>
+                    <h1>Réparation de <span class="span-primary">cartes</span> et <span class="span-primary">systèmes électroniques</span> professionnels et industriels.</h1>
+                    <p class="my-4">Donnez une seconde vie à votre matériel électronique et gagnez du temps tout en économisant de l'argent.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 my-1"><a href="{{ path('quotation') }}" class="btn btn-primary call-to-action">Devis gratuit</a>
+                <div class="col-sm-6 my-1">
+                    <a href="{{ path('quotation') }}" class="btn btn-primary call-to-action">Devis gratuit</a>
                 </div>
-                <div class="col-sm-6 my-1"><a href="{{ path('home') }}#services"
-                        class="btn btn-outline-primary call-to-action">Nos services</a>
+                <div class="col-sm-6 my-1">
+                    <a href="{{ path('home') }}#services" class="btn btn-outline-primary call-to-action">Nos services</a>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <img src="{{ asset('images/illustrationHero.svg') }}" alt="" loading="lazy">
+            <img src="{{ asset('images/illustrationHero.svg') }}" alt="Cartes et systèmes électroniques" loading="lazy">
         </div>
     </div>
 </section>
@@ -37,8 +38,7 @@
 <section class="services container">
     <div class="col-lg-6 pl-0">
         <h2>Nos services</h2>
-        <p>Nous sommes spécialisé dans la réparation de tout type et toute marque de cartes électroniques ainsi que de
-            systèmes électroniques professionnels et industriels. </p>
+        <p>Nous sommes spécialisé dans la réparation de tout type et toute marque de cartes électroniques ainsi que de systèmes électroniques professionnels et industriels.</p>
     </div>
     <hr>
     <div class="row">
@@ -46,13 +46,12 @@
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
-                        <img src="{{ asset('images/build.svg') }}" class="card-img" alt="">
+                        <img src="{{ asset('images/build.svg') }}" class="card-img" alt="Réparation de cartes électroniques" loading="lazy">
                     </div>
                     <div class="col-lg-10">
                         <div class="card-body">
                             <h3 class="card-title">Réparation de cartes électroniques</h3>
-                            <p class="card-text">Nous réparons tout type de cartes électroniques professionnels et
-                                industriels.</p>
+                            <p class="card-text">Nous réparons tout type de cartes électroniques professionnels et industriels.</p>
                         </div>
                     </div>
                 </div>
@@ -62,13 +61,12 @@
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
-                        <img src="{{ asset('images/devis.svg') }}" class="card-img" alt="">
+                        <img src="{{ asset('images/devis.svg') }}" class="card-img" alt="Création d’un support de remise en service" loading="lazy">
                     </div>
                     <div class="col-lg-10">
                         <div class="card-body">
                             <h3 class="card-title">Création d’un support de remise en service</h3>
-                            <p class="card-text">Nous vous fournissons un support de remise en service des systèmes
-                                réparés.</p>
+                            <p class="card-text">Nous vous fournissons un support de remise en service des systèmes réparés.</p>
                         </div>
                     </div>
                 </div>
@@ -78,13 +76,12 @@
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
-                        <img src="{{ asset('images/clock.svg') }}" class="card-img" alt="">
+                        <img src="{{ asset('images/clock.svg') }}" class="card-img" alt="Devis en 24h" loading="lazy">
                     </div>
                     <div class="col-lg-10">
                         <div class="card-body">
                             <h3 class="card-title">Devis en 24h</h3>
-                            <p class="card-text">Nous nous engageons à vous répondre sous 24h. Devis gratuit en ligne ou
-                                par téléphone.</p>
+                            <p class="card-text">Nous nous engageons à vous répondre sous 24h. Devis gratuit en ligne ou par téléphone.</p>
                         </div>
                     </div>
                 </div>
@@ -94,13 +91,12 @@
             <div class="card mb-4 px-4 py-5">
                 <div class="row">
                     <div class="col-lg-2 text-center">
-                        <img src="{{ asset('images/time.svg') }}" class="card-img" alt="">
+                        <img src="{{ asset('images/time.svg') }}" class="card-img" alt="Traitement des urgences" loading="lazy">
                     </div>
                     <div class="col-lg-10">
                         <div class="card-body">
                             <h3 class="card-title">Traitement des urgences</h3>
-                            <p class="card-text">Parce que nous comprenons que votre temps est précieux nous traitons
-                                vos urgences.</p>
+                            <p class="card-text">Parce que nous comprenons que votre temps est précieux nous traitons vos urgences.</p>
                         </div>
                     </div>
                 </div>
@@ -112,12 +108,11 @@
     <div class="col-lg-8  mx-auto">
         <h2>Nous relevons le défi de donner une deuxième vie à votre matériel électronique.</h2>
         <div class="hr"></div>
-        <p>La réparation de vos cartes et système électroniques vous permet d’économiser de l’argent, de gagner du temps
-            et d’adopter une solution respectueuse de l’environnement.</p>
+        <p>La réparation de vos cartes et système électroniques vous permet d’économiser de l’argent, de gagner du temps et d’adopter une solution respectueuse de l’environnement.</p>
     </div>
 </section>
 <div class="elec-bottom-card">
-    <img src="{{ asset('images/illustrationBottom.svg') }}" width="320" alt="" loading="lazy">
+    <img src="{{ asset('images/illustrationBottom.svg') }}" width="320" alt="Cartes et systèmes électroniques" loading="lazy">
 </div>
 <div class="shape">
     <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -133,40 +128,35 @@
                 <h2>Qui sommes-nous ?</h2>
             </div>
             <div class="col-lg-8">
-                <p>Fondée par Julien Canessa en 2018, l’entreprise RCP Electronic est spécialisée dans la réparation de
-                    cartes et systèmes électroniques professionnels et industriels dans les départements des Bouches du
-                    Rhône, du Var et des Alpes Maritimes.</p>
+                <p>Fondée par Julien Canessa en 2018, l’entreprise RCP Electronic est spécialisée dans la réparation de cartes et systèmes électroniques professionnels et industriels dans les départements des Bouches du Rhône, du Var et des Alpes Maritimes.</p>
             </div>
         </div>
         <hr>
         <div class="row">
             <div class="col-lg-4 d-flex" data-aos="fade-up">
                 <div class="card mb-4">
-                    <img src="{{ asset('images/user.svg') }}" class="card-img-top mx-auto" alt="">
+                    <img src="{{ asset('images/user.svg') }}" class="card-img-top mx-auto" alt="Proche de vous" loading="lazy">
                     <div class="card-body">
                         <h3 class="card-title text-center">Proche de vous</h3>
-                        <p class="card-text text-center">Notre proximité avec les entreprises et industries locales nous
-                            permet de faire preuve d’une grande réactivité</p>
+                        <p class="card-text text-center">Notre proximité avec les entreprises et industries locales nous permet de faire preuve d’une grande réactivité</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 d-flex" data-aos="fade-up">
                 <div class="card mb-4">
-                    <img src="{{ asset('images/experience.svg') }}" class="card-img-top mx-auto" alt="">
+                    <img src="{{ asset('images/experience.svg') }}" class="card-img-top mx-auto" alt="15 ans d’expérience" loading="lazy">
                     <div class="card-body">
                         <h3 class="card-title text-center">15 ans d’expérience</h3>
-                        <p class="card-text text-center">Fort d’une longue expérience nous vous apportons les solutions
-                            adaptées dans les meilleurs délais</p>
+                        <p class="card-text text-center">Fort d’une longue expérience nous vous apportons les solutions adaptées dans les meilleurs délais</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 d-lg-flex" data-aos="fade-up">
                 <div class="card mb-4">
-                    <img src="{{ asset('images/success.svg') }}" class="card-img-top mx-auto" alt="">
+                    <img src="{{ asset('images/success.svg') }}" class="card-img-top mx-auto" alt="Un taux de réussite élevée" loading="lazy">
                     <div class="card-body">
                         <h3 class="card-title text-center">Un taux de réussite élevée</h3>
-                        <p class="card-text text-center">La client est au centre de notre entreprise. Votre satisfaction
-                            est notre priorité</p>
+                        <p class="card-text text-center">La client est au centre de notre entreprise. Votre satisfaction est notre priorité</p>
                     </div>
                 </div>
             </div>

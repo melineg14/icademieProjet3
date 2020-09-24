@@ -1,6 +1,10 @@
 {# templates/pages/quotations.html.twig #}
 {% extends 'base.html.twig' %}
 
+{% block metaDescription %}Nous nous engageons à vous répondre sous 24h. Devis gratuit en ligne ou par téléphone.{% endblock metaDescription %}
+{% block robots %}index,follow{% endblock robots %}
+{% block title %}Demander un devis | RCP Electronic{% endblock %}
+
 {% form_theme form _self %}
 
 {% block form_errors %}
@@ -13,25 +17,23 @@
     {% endspaceless %}
 {% endblock form_errors %}
 
-{% block title %}Demander un devis{% endblock %}
-
 {% block body %}
 <section class="contact container">
     <div class="row">
         <div class="col-lg-6">
             <h1 class="page-h1 h1-sm-device">Demander un devis</h1>
+            <h2 class="d-none">Une machine en panne, une carte défectueuse ?</h2>
             <div class="row quotes">
                 <div class="col-lg-11">
                     <div class="mb-4 px-1 py-1">
                         <div class="row">
                             <div class="col-lg-2 text-center">
-                                <img src="{{ asset('images/build.svg') }}" class="card-img" alt="">
+                                <img src="{{ asset('images/build.svg') }}" class="card-img" alt="Réparation de cartes électroniques" loading="lazy">
                             </div>
                             <div class="col-lg-10">
                                 <div class="card-body">
                                     <h3 class="card-title">Réparation de cartes électroniques</h3>
-                                    <p class="card-text">Nous réparons tout type de cartes électroniques professionnels
-                                        et industriels.</p>
+                                    <p class="card-text">Nous réparons tout type de cartes électroniques professionnels et industriels.</p>
                                 </div>
                             </div>
                         </div>
@@ -41,13 +43,12 @@
                     <div class="mb-4 px-1 py-1">
                         <div class="row">
                             <div class="col-lg-2 text-center">
-                                <img src="{{ asset('images/clock.svg') }}" class="card-img" alt="">
+                                <img src="{{ asset('images/clock.svg') }}" class="card-img" alt="Devis en 24h" loading="lazy">
                             </div>
                             <div class="col-lg-10">
                                 <div class="card-body">
                                     <h3 class="card-title">Devis en 24h</h3>
-                                    <p class="card-text">Nous nous engageons à vous répondre sous 24h. Devis gratuit en
-                                        ligne ou par téléphone.</p>
+                                    <p class="card-text">Nous nous engageons à vous répondre sous 24h. Devis gratuit en ligne ou par téléphone.</p>
                                 </div>
                             </div>
                         </div>
@@ -57,13 +58,12 @@
                     <div class="mb-4 px-1 py-1">
                         <div class="row">
                             <div class="col-lg-2 text-center">
-                                <img src="{{ asset('images/time.svg') }}" class="card-img" alt="">
+                                <img src="{{ asset('images/time.svg') }}" class="card-img" alt="Traitement des urgences" loading="lazy">
                             </div>
                             <div class="col-lg-10">
                                 <div class="card-body">
                                     <h3 class="card-title">Traitement des urgences</h3>
-                                    <p class="card-text">Parce que nous comprenons que votre temps est précieux nous
-                                        traitons vos urgences.</p>
+                                    <p class="card-text">Parce que nous comprenons que votre temps est précieux nous traitons vos urgences.</p>
                                 </div>
                             </div>
                         </div>
@@ -110,10 +110,8 @@
                 {{ form_errors(form.quote_message) }}
                 <p>
                     <small>
-                        En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par
-                        RCP Electronic.
-                        <a class="rgpd-link" data-toggle="collapse" href="#multiCollapseExample1" role="button"
-                            aria-expanded="false" aria-controls="multiCollapseExample1">
+                        En soumettant ce formulaire, j’accepte que les informations saisies <br> soient utilisées par RCP Electronic.
+                        <a class="rgpd-link" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">
                             A LIRE ATTENTIVEMENT
                         </a>
                     </small>
@@ -142,7 +140,7 @@
     <script src="{{ asset('js/file-browser.js') }}"></script>
     <script>
         $('#browse-file').fileselect({
-        default: false
-        });  
+            default: false
+        });
     </script>
 {% endblock %}

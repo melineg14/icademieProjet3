@@ -20,8 +20,8 @@ class QuotationRepository extends ServiceEntityRepository
     }
 
     /**
-    * @return Quotation[] Returns an array of Quotation objects
-    */
+     * @return Quotation[] Returns an array of Quotation objects
+     */
     public function findByStatus($value)
     {
         return $this->createQueryBuilder('q')
@@ -29,20 +29,18 @@ class QuotationRepository extends ServiceEntityRepository
             ->setParameter('val', $value)
             ->orderBy('q.created_at', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     /**
-    * @return Quotation[] Returns an array of Quotation objects
-    */
+     * @return Quotation[] Returns an array of Quotation objects
+     */
     public function findAllByDate()
     {
         return $this->createQueryBuilder('q')
             ->orderBy('q.created_at', 'DESC')
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
 
     public function updateStatus($value, $id)
@@ -54,19 +52,6 @@ class QuotationRepository extends ServiceEntityRepository
             ->where('q.id = :id')
             ->setParameter('id', $id)
             ->getQuery()
-            ->getSingleScalarResult()
-        ;
+            ->getSingleScalarResult();
     }
-
-    /*
-    public function findOneBySomeField($value): ?Quotation
-    {
-        return $this->createQueryBuilder('q')
-            ->andWhere('q.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

@@ -3,9 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Quotation;
-use App\Form\QuotationStatusType;
 use App\Repository\QuotationRepository;
-use App\Service\QuotationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -55,7 +53,7 @@ class AdminQuotationController extends AbstractController
             $quotes = $this->repository->findAllByDate();
         }
 
-        if(isset($_POST['reset'])) {
+        if (isset($_POST['reset'])) {
             $quotes = $this->repository->findAllByDate();
         }
 
@@ -73,7 +71,7 @@ class AdminQuotationController extends AbstractController
     {
         $quotation = new Quotation();
         $form = $this->createFormBuilder($quotation)
-            ->add('status', ChoiceType::class, [ 
+            ->add('status', ChoiceType::class, [
                 'choices' => $this->getChoices(),
                 'label' => 'Statut',
                 'attr' => [

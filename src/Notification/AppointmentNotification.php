@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Notification;
 
 use App\Entity\Appointment;
@@ -27,12 +28,12 @@ class AppointmentNotification
     {
         $message = (new \Swift_Message('RCP électronic : l\'entreprise ' . $app->getCompany() . ' souhaite prendre rendez-vous avec vous !'))
             ->setFrom('noreply@rcp-electronic.fr')
-            ->setTo('contact@rcp-electronic.fr');
-            $img = $message->embed(\Swift_Image::fromPath('images/logo.png'));
-            $message->setBody($this->renderer->render('emails/appointment.html.twig', [
-                'appointment' => $app,
-                'img' => $img
-            ]), 'text/html');
+            ->setTo('contact@rcpelec.gan-sabarat.fr');
+        $img = $message->embed(\Swift_Image::fromPath('images/logo.png'));
+        $message->setBody($this->renderer->render('emails/appointment.html.twig', [
+            'appointment' => $app,
+            'img' => $img
+        ]), 'text/html');
         $this->mailer->send($message);
     }
 
@@ -41,11 +42,11 @@ class AppointmentNotification
         $message = (new \Swift_Message('RCP électronic : résumé de votre demande de prise de rendez-vous.'))
             ->setFrom('noreply@rcp-electronic.fr')
             ->setTo($app->getMail());
-            $img = $message->embed(\Swift_Image::fromPath('images/logo.png'));
-            $message->setBody($this->renderer->render('emails/appointmentAbstract.html.twig', [
-                'appointment' => $app,
-                'img' => $img
-            ]), 'text/html');
+        $img = $message->embed(\Swift_Image::fromPath('images/logo.png'));
+        $message->setBody($this->renderer->render('emails/appointmentAbstract.html.twig', [
+            'appointment' => $app,
+            'img' => $img
+        ]), 'text/html');
         $this->mailer->send($message);
     }
 }

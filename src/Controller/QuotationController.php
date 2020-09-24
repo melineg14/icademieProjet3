@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Entity\Quotation;
@@ -17,7 +18,7 @@ class QuotationController extends AbstractController
      */
     private $manager;
 
-    public function __construct(EntityManagerInterface $manager) 
+    public function __construct(EntityManagerInterface $manager)
     {
         $this->manager = $manager;
     }
@@ -32,7 +33,7 @@ class QuotationController extends AbstractController
         $form = $this->createForm(QuotationType::class, $quote);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $quote->setCreatedAt(new \DateTime());
             $this->manager->persist($quote);
             $this->manager->flush();
@@ -45,5 +46,5 @@ class QuotationController extends AbstractController
         return $this->render('pages/quotation.html.twig', [
             'form' => $form->createView()
         ]);
-    } 
+    }
 }

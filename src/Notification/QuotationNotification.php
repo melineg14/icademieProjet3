@@ -28,7 +28,7 @@ class QuotationNotification
     {
         $message = (new \Swift_Message('RCP électronic : l\'entreprise ' . $quote->getCompany() . ' vous demande un devis !'))
             ->setFrom('noreply@rcp-electronic.fr')
-            ->setTo('contact@rcp-electronic.fr');
+            ->setTo('contact@rcpelec.gan-sabarat.fr');
         $img = $message->embed(\Swift_Image::fromPath('images/logo.png'));
         $quote_img = $message->embed(\Swift_Image::fromPath('images/quotations/' . $quote->getImageName()));
         $message->setBody($this->renderer->render('emails/quotation.html.twig', [

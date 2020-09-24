@@ -1,21 +1,21 @@
 {# templates/pages/advice.html.twig #}
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos conseils
-{% endblock %}
+{% block metaDescription %}Retrouvez nos articles et conseils afin d’entretenir vos systèmes et vos cartes électroniques.{% endblock metaDescription %}
+{% block robots %}index,follow{% endblock robots %}
+{% block title %}Nos conseils et actualités | RCP Electronic{% endblock %}
 
 {% block body %}
 	<section class="advices container">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-h1 h1-sm-device">Nos conseils</h1>
-				<p class="my-5 p-sub">Retrouvez nos articles et conseils afin d’entretenir vos systèmes et vos cartes
-					                électroniques.</p>
+				<h1 class="page-h1 h1-sm-device">Nos conseils et actualités</h1>
+				<p class="my-5 p-sub">Retrouvez nos articles et conseils afin d’entretenir vos systèmes et vos cartes électroniques.</p>
 				<div class="row">
 					{% for advice in advices %}
 						<article class="col-lg-4 my-4">
 							<div class="card">
-								<a href="{{ path('advice.show', {id: advice.id, slug: advice.slug}) }}"><img src="{{ vich_uploader_asset(advice, 'imageFile') }}" alt="photographie liée à l'article" class="img-fluid card-img-top" loading="lazy"></a>
+								<a href="{{ path('advice.show', {id: advice.id, slug: advice.slug}) }}"><img src="{{ vich_uploader_asset(advice, 'imageFile') }}" alt="{{ advice.title }}" class="img-fluid card-img-top" loading="lazy"></a>
 								<div class="card-body">
 									<a href="{{ path('advice.show', {id: advice.id, slug: advice.slug}) }}">
 										<h2 class="my-3 card-title">{{ advice.title |truncate(34, false, " [...]") }}</h2>
